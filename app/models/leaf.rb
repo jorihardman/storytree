@@ -1,3 +1,4 @@
 class Leaf < ActiveRecord::Base
-  has_ancesty
+  acts_as_superclass
+  has_ancestry
 end

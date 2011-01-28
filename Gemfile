@@ -2,7 +2,10 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'jquery-rails'
+gem 'mysql2'
 gem 'ancestry'
+gem 'class-table-inheritance'
+gem 'dynamic_form'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

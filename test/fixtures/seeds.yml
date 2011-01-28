@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  leaf_length: 1
+  branch_length: 1
+
+two:
+  title: MyString
+  leaf_length: 1
+  branch_length: 1
