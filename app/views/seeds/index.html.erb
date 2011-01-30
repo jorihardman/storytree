@@ -1,6 +1,7 @@
 <h1>Seeds</h1>
 
-<%= link_to 'Plant', new_seed_path %><br/>
+<%= link_to 'Plant New Seed', new_seed_path %><br/>
+<br/>
 
 <table>
   <tr>
@@ -10,9 +11,9 @@
   </tr>
   <% @seeds.each do |seed| %>
   <tr>
-    <td>seed.title</td>
-    <td>seed.story</td>
-    <td>seed.points</td>
+    <td><%= seed.seed_detail.title %></td>
+    <td><%= seed.story %></td>
+    <td><%= seed.points %></td>
   </tr>
   <% end %>
 </table>

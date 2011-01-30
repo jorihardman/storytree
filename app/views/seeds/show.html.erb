@@ -1,13 +1,16 @@
-<h1>Explore Tree</h1>
+<h1>Climb Tree</h1>
 
-<div id='story'>
+<h3>Current Story</h3>
+<div id='story' class='dialogue'>
   <%= @seed.story %>
 </div>
 
-<div id='children'>
+<h3>Branches</h3>
+<div id='children' class='dialogue'>
   <%= render :partial => 'leaves/children', :object => @seed, :as => :leaf %>
 </div>
 
+<h3>Create Branch</h3>
 <div id='leaf_form'>
   <%= render :partial => 'leaves/form', :object => @seed, :as => :parent %>
 </div>

@@ -54,3 +54,38 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+/* end rails presets */
+
+.dialogue {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.child {
+  border: 1px dotted black;
+  margin: 5px 0 5px 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 750px;
+}
+
+table th {
+  border: 1px solid silver;
+  padding: 0.5em;
+  color: white;
+  background-color: #485156;
+}
+
+table tr {
+  border: 1px solid silver;
+}
+
+table td {
+	padding: 0.5em;
+	border: 1px solid silver;
+}

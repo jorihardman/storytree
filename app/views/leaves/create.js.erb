@@ -1,3 +1,5 @@
-$('story').append('<%= @leaf.story %>')
-
-$('children').html('<%= escape_javascript(render('leaves/children', :object => @leaf, :as => :leaf)) %>')
+$('#children').html('<%=
+  escape_javascript(
+    render(:partial => 'leaves/children', :object => @leaf.parent, :as => :leaf)
+  )
+%>')
