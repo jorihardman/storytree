@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20110130023608) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
-    t.string   "subtype"
     t.integer  "points"
     t.string   "type"
   end

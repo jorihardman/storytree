@@ -2,7 +2,7 @@
 
 <%= form_for @seed do |f| %>
   <%= f.error_messages %>
-  <%= f.fields_for @seed.seed_detail do |d| %>
+  <%= f.fields_for :seed_detail, @seed_detail do |d| %>
     <%= d.label :title %><br/>
     <%= d.text_field :title %><br/>
     <br/>

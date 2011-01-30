@@ -2,6 +2,6 @@
   <%= f.label :story %><br/>
   <%= f.text_area :story %><br/>
   <br/>
-  <%= f.hidden_field :parent, :value => @seed.id %>
+  <%= f.hidden_field :parent_id, :value => parent.id %>
   <%= f.submit 'Add' %>
 <% end %>

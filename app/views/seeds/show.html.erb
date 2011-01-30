@@ -9,5 +9,5 @@
 </div>
 
 <div id='leaf_form'>
-  <%= render 'leaves/form' %>
+  <%= render :partial => 'leaves/form', :object => @seed, :as => :parent %>
 </div>

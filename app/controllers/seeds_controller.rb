@@ -26,7 +26,7 @@ class SeedsController < ApplicationController
   # GET /seeds/new.xml
   def new
     @seed = Seed.new
-    @seed.seed_detail = SeedDetail.new
+    @seed_detail = @seed.build_seed_detail
 
     respond_to do |format|
       format.html # new.html.erb
