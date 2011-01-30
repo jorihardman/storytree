@@ -11,7 +11,7 @@
   </tr>
   <% @seeds.each do |seed| %>
   <tr>
-    <td><%= seed.seed_detail.title %></td>
+    <td><%= link_to seed.seed_detail.title, seed %></td>
     <td><%= seed.story %></td>
     <td><%= seed.points %></td>
   </tr>

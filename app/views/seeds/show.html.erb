@@ -10,7 +10,9 @@
   <%= render :partial => 'leaves/children', :object => @seed, :as => :leaf %>
 </div>
 
-<h3>Create Branch</h3>
-<div id='leaf_form'>
-  <%= render :partial => 'leaves/form', :object => @seed, :as => :parent %>
-</div>
+<% if @seed.children.count <= 5 %>
+  <h3>Create Branch</h3>
+  <div id='leaf_form'>
+    <%= render :partial => 'leaves/form', :object => @seed, :as => :parent %>
+  </div>
+<% end %>

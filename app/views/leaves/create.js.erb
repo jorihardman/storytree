@@ -2,4 +2,6 @@ $('#children').html('<%=
   escape_javascript(
     render(:partial => 'leaves/children', :object => @leaf.parent, :as => :leaf)
   )
-%>')
+%>');
+
+$('#leaf_story').val('');

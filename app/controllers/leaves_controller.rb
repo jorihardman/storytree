@@ -26,4 +26,14 @@ class LeavesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def climb
+    @leaf = Leaf.find(params[:id])
+    @leaf.parent.add_points!
+
+    respond_to do |format|
+      format.js # climb.js.erb
+      format.xml  { head :ok }
+    end
+  end
 end

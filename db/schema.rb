@@ -10,15 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110130023608) do
+ActiveRecord::Schema.define(:version => 20110130055643) do
 
   create_table "leaves", :force => true do |t|
     t.text     "story"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
-    t.integer  "points"
+    t.integer  "points",     :default => 0
     t.string   "type"
+    t.integer  "level",      :default => 0
   end
 
   add_index "leaves", ["ancestry"], :name => "index_leaves_on_ancestry"
