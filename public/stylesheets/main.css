@@ -1,4 +1,7 @@
-body { background-color: #fff; color: #333; }
+  background: white;
+body {
+  color: black;
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -12,9 +15,9 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a { color: black; }
+a:visited { color: black; }
+a:hover { color: black; background-color: gray; }
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -58,14 +61,14 @@ div.field, div.actions {
 /* end rails presets */
 
 .dialogue {
-  border: 1px solid black;
+  border: 1px solid #b1b1b1;
   padding: 10px;
   margin-bottom: 20px;
   width: 500px;
 }
 
 .child {
-  border: 1px dotted black;
+  border: 1px dotted #b1b1b1;
   margin: 5px 0 5px 0;
 }
 
@@ -75,17 +78,19 @@ table {
 }
 
 table th {
-  border: 1px solid silver;
+  border: 1px solid black;
   padding: 0.5em;
   color: white;
-  background-color: #485156;
+  background-color: gray;
 }
 
 table tr {
-  border: 1px solid silver;
+  border: 1px solid black;
 }
 
 table td {
 	padding: 0.5em;
-	border: 1px solid silver;
+	border: 1px solid black;
+	background: white;
+	color: black;
 }

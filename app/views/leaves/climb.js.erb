@@ -1,3 +1,5 @@
+$('#level').html('Level: <%= "#{@leaf.level}/#{@leaf.max_length}" %>')
+
 $('#story').append('<br/><%= @leaf.story %>');
 
 $('#children').html('<%=

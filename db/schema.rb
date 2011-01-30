@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110130055643) do
     t.string   "ancestry"
     t.integer  "points",     :default => 0
     t.string   "type"
-    t.integer  "level",      :default => 0
+    t.integer  "level",      :default => 1
   end
 
   add_index "leaves", ["ancestry"], :name => "index_leaves_on_ancestry"
