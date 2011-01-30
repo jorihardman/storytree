@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  leaf_id: 1
+  branch_length: 1
+  double_posting: false
+
+two:
+  leaf_id: 1
+  branch_length: 1
+  double_posting: false

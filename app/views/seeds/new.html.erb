@@ -1,19 +1,18 @@
 <h1>Plant Seed</h1>
 
-<%= form_for(@seed) do |f| %>
+<%= form_for @seed do |f| %>
   <%= f.error_messages %>
-  <%= f.label :title %><br/>
-  <%= f.text_field :title %><br/>
-  <br/>
-  <%= f.label :branch_length %><br/>
-  <%= f.text_field :branch_length %><br/>
-  <br/>
-  <%= f.label :leaf_length %><br/>
-  <%= f.text_field :leaf_length %><br/>
-  <br/>
-  <%= f.label :double_posting %><br/>
-  <%= f.check_box :double_posting %><br/>
-  <br/>
+  <%= f.fields_for @seed.seed_detail do |d| %>
+    <%= d.label :title %><br/>
+    <%= d.text_field :title %><br/>
+    <br/>
+    <%= d.label :branch_length %><br/>
+    <%= d.text_field :branch_length %><br/>
+    <br/>
+    <%= d.label :double_posting %><br/>
+    <%= d.check_box :double_posting %><br/>
+    <br/>
+  <% end %>
   <%= f.label :story %><br/>
   <%= f.text_area :story %><br/>
   <br/>
