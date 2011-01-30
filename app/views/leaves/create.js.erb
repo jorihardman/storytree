@@ -1,7 +1,4 @@
-$('#children').html('<%=
-  escape_javascript(
-    render(:partial => 'leaves/children', :object => @leaf.parent, :as => :leaf)
-  )
-%>');
-
-$('#leaf_story').val('');
+$('#children').append(
+  "<div id='<%= @leaf.id %>' class='child'><%= @leaf.leaf_text %></div>"
+);
+$('#leaf').hide();

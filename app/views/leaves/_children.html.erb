@@ -1,9 +1,0 @@
-<% leaf.children.each do |child| %>
-  <div id='<%= child.id %>' class='child'><%= child.story %></div>
-<% end %>
-
-<script>
-  $('.child').click(function() {
-    $.post('/leaves/climb', {id: this.id});
-  });
-</script>

@@ -8,6 +8,7 @@
   <%= javascript_include_tag 'rails.js', 'application.js' %>
   <%= csrf_meta_tag %>
 </head>
+<%= yield :head %>
 <body>
 
 <%= yield %>

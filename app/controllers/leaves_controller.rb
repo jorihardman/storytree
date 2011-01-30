@@ -27,12 +27,12 @@ class LeavesController < ApplicationController
     end
   end
 
-  def climb
+  def show
     @leaf = Leaf.find(params[:id])
-    @leaf.parent.add_points!
+    @branch = Leaf.new
 
     respond_to do |format|
-      format.js # climb.js.erb
+      format.html # show.html.erb
       format.xml  { head :ok }
     end
   end

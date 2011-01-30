@@ -13,11 +13,11 @@ class SeedsController < ApplicationController
   # GET /seeds/1
   # GET /seeds/1.xml
   def show
-    @seed = Seed.find(params[:id])
-    @leaf = Leaf.new
+    @leaf = Seed.find(params[:id])
+    @branch = Leaf.new
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render 'leaves/show' }
       format.xml  { render :xml => @seed }
     end
   end
