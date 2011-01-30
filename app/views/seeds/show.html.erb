@@ -1,0 +1,13 @@
+<h1>Explore Tree</h1>
+
+<div id='story'>
+  <%= @seed.story %>
+</div>
+
+<div id='children'>
+  <%= render :partial => 'leaves/children', :object => @seed, :as => :leaf %>
+</div>
+
+<div id='leaf_form'>
+  <%= render 'leaves/form' %>
+</div>

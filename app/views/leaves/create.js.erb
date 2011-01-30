@@ -1,0 +1,3 @@
+$('story').append('<%= @leaf.story %>')
+
+$('children').html('<%= escape_javascript(render('leaves/children', :object => @leaf, :as => :leaf)) %>')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110128212531) do
+ActiveRecord::Schema.define(:version => 20110130000041) do
 
   create_table "leaves", :force => true do |t|
     t.text     "story"
@@ -18,17 +18,19 @@ ActiveRecord::Schema.define(:version => 20110128212531) do
     t.datetime "updated_at"
     t.string   "ancestry"
     t.string   "subtype"
+    t.integer  "points"
   end
 
   add_index "leaves", ["ancestry"], :name => "index_leaves_on_ancestry"
 
   create_table "seeds", :id => false, :force => true do |t|
-    t.integer  "leaf_id",       :null => false
+    t.integer  "leaf_id",        :null => false
     t.string   "title"
     t.integer  "leaf_length"
     t.integer  "branch_length"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "double_posting"
   end
 
 end

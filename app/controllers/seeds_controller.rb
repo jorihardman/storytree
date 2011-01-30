@@ -14,6 +14,7 @@ class SeedsController < ApplicationController
   # GET /seeds/1.xml
   def show
     @seed = Seed.find(params[:id])
+    @leaf = Leaf.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,11 +31,6 @@ class SeedsController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @seed }
     end
-  end
-
-  # GET /seeds/1/edit
-  def edit
-    @seed = Seed.find(params[:id])
   end
 
   # POST /seeds

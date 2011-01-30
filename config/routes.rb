@@ -1,5 +1,6 @@
 Storytree::Application.routes.draw do
   resources :leaves
+  resources :seeds
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
