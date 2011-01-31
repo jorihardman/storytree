@@ -1,2 +1,8 @@
+//render branches again to get the new branch
 $('#branches').html('<%= escape_javascript(render('leaves/branches')) %>');
+
+//clear leaf form
 $('#leaf_leaf_text').val('');
+
+//reload javascript for binds
+$(document).append("<script src='/javascripts/application.js'></script>")

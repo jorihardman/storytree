@@ -1,8 +1,16 @@
+//add chosen leaf to the overall story
 $('#story').append(
   "<div id='<%= @leaf.id %>' class='page' display='none'><%= @leaf.leaf_text %></div>"
 );
 $('#<%= @leaf.id %>')
   .hide()
   .slideDown('fast');
+
+//render the new branches
 $('#branches').html('<%= escape_javascript(render('leaves/branches')) %>');
-$('#leaf_parent_id').val('<%= @leaf.id %>')
+
+//update leaf form to match current leaf
+$('#leaf_parent_id').val('<%= @leaf.id %>');
+
+//reload javascript for binds
+$(document).append("<script src='/javascripts/application.js'></script>")

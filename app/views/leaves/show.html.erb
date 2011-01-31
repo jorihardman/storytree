@@ -9,13 +9,11 @@
   <%= render 'leaves/branches' %>
 </div>
 
-<div id='leaf'>
-  <h3>Write your own Leaf</h3>
+<h3>Write your own Leaf</h3>
+<div id='leaf' class='dialogue'>
   <%= form_for @branch, :remote => true do |f| %>
-    <%= f.text_area :leaf_text %><br/>
+    <%= f.text_area :leaf_text, :rows => 5 %><br/>
     <%= f.hidden_field :parent_id, :value => @leaf.id %>
     <%= f.submit 'Add' %>
   <% end %>
 </div>
-
-<h4>Page: <%= @leaf.depth + 1 %></h4>

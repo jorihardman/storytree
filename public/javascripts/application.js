@@ -1,2 +1,17 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  $('.page').click(function() {window.location = '/leaves/'+this.id});
+
+  $('.branch').click(function() {
+    $(this).animate({marginLeft: '0px'}, 'fast');
+    $.post('/leaves/climb', {id: this.id});
+  });
+
+  $('.branch').hover(
+    function() {
+      $(this).animate({marginLeft: '10px'}, 'fast');
+    },
+    function() {
+      $(this).animate({marginLeft: '0px'}, 'fast');
+    }
+  );
+});
