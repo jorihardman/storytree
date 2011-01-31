@@ -1,5 +1,7 @@
-//render branches again to get the new branch
-$('#branches').html('<%= escape_javascript(render('leaves/branches')) %>');
+//append newly created branch to branches
+$('#branches').append(
+  "<div id='<%= @leaf.id %>' class='branch'><div class='points'>[<%= @leaf.points %>]</div><%= @leaf.leaf_text %></div>"
+);
 
 //clear leaf form
 $('#leaf_leaf_text').val('');
