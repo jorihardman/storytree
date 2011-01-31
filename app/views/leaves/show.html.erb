@@ -1,7 +1,14 @@
 <h1><%= @leaf.root.seed_detail.title %></h1>
 
 <div id='story' class='dialogue'>
-  <%= render 'leaves/story' %>
+  <% @leaf.ancestors.each do |leaf|  %>
+    <div id='<%= leaf.id %>' class='page'>
+      <%= leaf.leaf_text %>
+    </div>
+  <% end %>
+  <div id='<%= @leaf.id %>' class='page'>
+    <%= @leaf.leaf_text %>
+  </div>
 </div>
 
 <h3>Choose the next Leaf</h3>
