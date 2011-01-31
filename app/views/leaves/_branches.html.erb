@@ -1,0 +1,21 @@
+<% @leaf.children.order('points DESC').each do |branch| %>
+  <div id='<%= branch.id %>' class='branch'>
+    <div class='points'>[<%= branch.points %>]</div>
+    <%= branch.leaf_text %>
+  </div>
+<% end %>
+
+<script>
+  $('.branch').click(function() {
+    $(this).animate({marginLeft: '0px'}, 'fast');
+    $.post('/leaves/climb', {id: this.id});
+  });
+  $('.branch').hover(
+    function() {
+      $(this).animate({marginLeft: '10px'}, 'fast');
+    },
+    function() {
+      $(this).animate({marginLeft: '0px'}, 'fast');
+    }
+  );
+</script>

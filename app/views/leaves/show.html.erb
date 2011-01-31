@@ -1,38 +1,21 @@
-<% content_for :head do %>
-  <script>
-  $(document).ready(function() {
-    $('.child').click(function() {
-      window.location = '/leaves/'+this.id;
-    });
-  });
-  </script>
-<% end %>
+<h1><%= @leaf.root.seed_detail.title %></h1>
 
 <div id='story' class='dialogue'>
-  <% @leaf.ancestors.each do |leaf|  %>
-    <%= leaf.leaf_text %><br/>
-  <% end %>
-  <%= @leaf.leaf_text %>
+  <%= render 'leaves/story' %>
 </div>
 
-<% if @leaf.has_children? %>
-  <h3>Branches</h3>
-  <div id='children' class='dialogue'>
-    <% @leaf.children.each do |child| %>
-      <div id='<%= child.id %>' class='child'><%= child.leaf_text %></div>
-    <% end %>
-  </div>
-<% end %>
+<h3>Choose the next Leaf</h3>
+<div id='branches' class='dialogue'>
+  <%= render 'leaves/branches' %>
+</div>
 
-<% if @leaf.children.count <= 5 %>
-  <div id='leaf'>
-    <h3>Create Branch</h3>
-    <%= form_for @branch, :remote => true do |f| %>
-      <%= f.text_area :leaf_text %><br/>
-      <%= f.hidden_field :parent_id, :value => @leaf.id %>
-      <%= f.submit 'Add' %>
-    <% end %>
-  </div>
-<% end %>
+<div id='leaf'>
+  <h3>Write your own Leaf</h3>
+  <%= form_for @branch, :remote => true do |f| %>
+    <%= f.text_area :leaf_text %><br/>
+    <%= f.hidden_field :parent_id, :value => @leaf.id %>
+    <%= f.submit 'Add' %>
+  <% end %>
+</div>
 
-<h4>Page: <%= @leaf.depth %></h4>
+<h4>Page: <%= @leaf.depth + 1 %></h4>

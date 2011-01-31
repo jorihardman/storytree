@@ -1,6 +1,7 @@
 Storytree::Application.routes.draw do
   resources :leaves
   resources :seeds
+  match '/leaves/climb' => 'leaves#climb'
   root :to => 'seeds#index'
 
   # The priority is based upon order of creation:

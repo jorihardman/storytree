@@ -1,4 +1,2 @@
-$('#children').append(
-  "<div id='<%= @leaf.id %>' class='child'><%= @leaf.leaf_text %></div>"
-);
-$('#leaf').hide();
+$('#branches').html('<%= escape_javascript(render('leaves/branches')) %>');
+$('#leaf_leaf_text').val('');

@@ -1,0 +1,8 @@
+$('#story').append(
+  "<div id='<%= @leaf.id %>' class='page' display='none'><%= @leaf.leaf_text %></div>"
+);
+$('#<%= @leaf.id %>')
+  .hide()
+  .slideDown('fast');
+$('#branches').html('<%= escape_javascript(render('leaves/branches')) %>');
+$('#leaf_parent_id').val('<%= @leaf.id %>')

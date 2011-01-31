@@ -1,0 +1,8 @@
+<% @leaf.ancestors.each do |leaf|  %>
+  <div id='<%= leaf.id %>' class='page'>
+    <%= leaf.leaf_text %>
+  </div>
+<% end %>
+<div id='<%= @leaf.id %>' class='page'>
+  <%= @leaf.leaf_text %>
+</div>

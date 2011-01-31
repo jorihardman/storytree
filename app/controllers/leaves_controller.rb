@@ -2,10 +2,11 @@ class LeavesController < ApplicationController
   # POST /leaves
   # POST /leaves.xml
   def create
-    @leaf = Leaf.new(params[:leaf])
+    new_leaf = Leaf.new(params[:leaf])
 
     respond_to do |format|
-      if @leaf.save
+      if new_leaf.save
+        @leaf = new_leaf.parent
         format.js # create.js.erb
         format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
       else
@@ -34,6 +35,15 @@ class LeavesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { head :ok }
+    end
+  end
+
+  def climb
+    @leaf = Leaf.find(params[:id])
+    @leaf.parent.add_points!
+
+    respond_to do |format|
+      format.js # climb.js.erb
     end
   end
 end

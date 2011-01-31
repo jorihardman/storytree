@@ -67,7 +67,7 @@ div.field, div.actions {
   width: 500px;
 }
 
-.child {
+.branch, .page {
   border: 1px dotted #b1b1b1;
   margin: 5px 0 5px 0;
 }
