@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  $('#branches').hide();
   $('#branches').slideDown('fast');
   bindPages();
   bindBranches();
