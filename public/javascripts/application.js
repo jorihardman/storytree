@@ -6,24 +6,28 @@ $(document).ready(function() {
     leaf_id = this.id;
     $(this).animate({marginLeft: '0px'}, 'fast', function() {
       $('.page').each(function() {
-        if (parseInt(this.id) > parseInt(leaf)) {
+        if (parseInt(this.id) > parseInt(leaf_id)) {
           $(this).fadeOut('fast');
         }
       });
-      slideAndRedirect(leaf_id);
+      $('#branches').slideUp('fast', function() {
+        window.location = '/leaves/'+leaf_id;
+      });
     });
   });
 
   $('.branch').click(function() {
     leaf_id = this.id;
     $(this).animate({marginLeft: '0px'}, 'fast', function() {
-      $(this).slideUp('fast', function() {
-        $(this)
+      $('#branches').slideUp('fast', function() {
+        $('#'+leaf_id)
           .hide()
-          .html($(this).html().replace(/\[\d+\]/, ''))
+          .html($('#'+leaf_id).html().replace(/\[\d+\]/, ''))
           .attr('class', 'page')
           .appendTo('#story')
-          .slideDown('fast', slideAndRedirect(leaf_id));
+          .slideDown('fast', function() {
+            window.location = '/leaves/'+leaf_id;
+          });
       });
     });
   });
@@ -37,9 +41,3 @@ $(document).ready(function() {
     }
   );
 });
-
-function slideAndRedirect(leaf_id) {
-  $('#branches').slideUp('slow', function() {
-    window.location = '/leaves/'+leaf_id;
-  });
-}
