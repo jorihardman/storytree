@@ -2,11 +2,10 @@ class LeavesController < ApplicationController
   # POST /leaves
   # POST /leaves.xml
   def create
-    new_leaf = Leaf.new(params[:leaf])
+    @leaf = Leaf.new(params[:leaf])
 
     respond_to do |format|
-      if new_leaf.save
-        @leaf = new_leaf.parent
+      if @leaf.save
         format.js # create.js.erb
         format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
       else

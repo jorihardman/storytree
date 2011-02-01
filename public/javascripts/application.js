@@ -1,7 +1,11 @@
 $(document).ready(function() {
   $('#branches').hide();
   $('#branches').slideDown('fast');
+  bindPages();
+  bindBranches();
+});
 
+function bindPages() {
   $('.page').click(function() {
     leaf_id = this.id;
     $(this).animate({marginLeft: '0px'}, 'fast', function() {
@@ -15,7 +19,9 @@ $(document).ready(function() {
       });
     });
   });
+}
 
+function bindBranches() {
   $('.branch').click(function() {
     leaf_id = this.id;
     $(this).animate({marginLeft: '0px'}, 'fast', function() {
@@ -40,4 +46,4 @@ $(document).ready(function() {
       $(this).animate({marginLeft: '0px'}, 'fast');
     }
   );
-});
+}
