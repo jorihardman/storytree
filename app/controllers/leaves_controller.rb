@@ -28,22 +28,16 @@ class LeavesController < ApplicationController
     end
   end
 
+  # GET /leaves/1
+  # GET /leaves/1.xml
   def show
     @leaf = Leaf.find(params[:id])
     @branch = Leaf.new
+    @leaf.parent.add_points! if params[:climb] == true
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { head :ok }
-    end
-  end
-
-  def climb
-    @leaf = Leaf.find(params[:id])
-    @leaf.parent.add_points!
-
-    respond_to do |format|
-      format.js # climb.js.erb
     end
   end
 end
