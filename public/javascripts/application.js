@@ -26,9 +26,9 @@ function bindBranches() {
     leaf_id = this.id;
     $(this).animate({marginLeft: '0px'}, 'fast', function() {
       $('#branches').slideUp('fast', function() {
+        $('#'+leaf_id+' > .stats').hide()
         $('#'+leaf_id)
           .hide()
-          .html($('#'+leaf_id).html().replace(/\[\d+\]/, ''))
           .attr('class', 'page')
           .appendTo('#story')
           .slideDown('fast', function() {
