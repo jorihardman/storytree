@@ -13,7 +13,16 @@
 
 <h3>Choose the next Leaf</h3>
 <div id='branches' class='dialogue' style='display:none;'>
-  <%= render 'leaves/branches' %>
+  <% @leaf.children.order('points DESC').each do |branch| %>
+    <div id='<%= branch.id %>' class='branch'>
+      <div class='stats'>
+        [<%= branch.points %> points]
+        [<%= branch.children.count %> branches]
+        [by <%= branch.user.name %>]
+      </div>
+      <%= branch.leaf_text %>
+    </div>
+  <% end %>
 </div>
 
 <h3>Write your own Leaf</h3>
