@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fbook_id: MyString
+  name: MyString
+  points: 1
+
+two:
+  fbook_id: MyString
+  name: MyString
+  points: 1
