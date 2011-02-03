@@ -1,6 +1,4 @@
 Storytree::Application.routes.draw do
-  get "users/show"
-
   resources :leaves
   resources :seeds
   resources  :users

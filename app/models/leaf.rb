@@ -1,5 +1,6 @@
 class Leaf < ActiveRecord::Base
   has_ancestry
+  belongs_to :user
   before_create :parent_point
 
   def story
