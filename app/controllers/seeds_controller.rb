@@ -1,4 +1,6 @@
 class SeedsController < ApplicationController
+  before_filter :require_user
+
   # GET /seeds
   # GET /seeds.xml
   def index

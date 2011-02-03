@@ -72,6 +72,11 @@ div.field, div.actions {
   margin: 5px 0 5px 0;
 }
 
+#login {
+  text-decoration: none;
+  background-color: white;
+}
+
 table {
   border-collapse: collapse;
   width: 750px;

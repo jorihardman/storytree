@@ -1,4 +1,6 @@
 class LeavesController < ApplicationController
+  before_filter :require_user
+
   # POST /leaves
   # POST /leaves.xml
   def create

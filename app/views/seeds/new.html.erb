@@ -9,7 +9,7 @@
   <% end %>
   <%= f.label :story %><br/>
   <%= f.text_area :leaf_text %><br/>
-  <%= f.hidden_field :user_id, :value => @current_user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <br/>
   <%= f.submit 'Plant' %>
 <% end %>

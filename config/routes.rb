@@ -1,11 +1,13 @@
 Storytree::Application.routes.draw do
-  resources :leaves
   resources :seeds
-  resources  :users
+  resources :leaves
   match '/leaves/climb' => 'leaves#climb'
+
+  resources :users
   match '/auth/facebook/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
-  root :to => 'seeds#index'
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
