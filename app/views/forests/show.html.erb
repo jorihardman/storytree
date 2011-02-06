@@ -1,20 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @forest.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @forest.name %>
-</p>
+<p><%= @forest.description %></p>
 
-<p>
-  <b>Description:</b>
-  <%= @forest.description %>
-</p>
+<%= link_to 'Plant New Seed', new_forest_seed_path(@forest.id) %><br/>
+<br/>
 
-<p>
-  <b>User:</b>
-  <%= @forest.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_forest_path(@forest) %> |
-<%= link_to 'Back', forests_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Author</th>
+    <th>Points</th>
+  </tr>
+  <% @forest.seeds.each do |seed| %>
+  <tr>
+    <td><%= link_to seed.seed_detail.title, forest_seed_leaf_path(seed.id, seed.id) %></td>
+    <td><%= seed.leaf_text %></td>
+    <td><%= seed.author.name %></td>
+    <td><%= seed.points %></td>
+  </tr>
+  <% end %>
+</table>

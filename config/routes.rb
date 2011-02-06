@@ -1,7 +1,10 @@
 Storytree::Application.routes.draw do
-  resources :forests
-  resources :seeds
-  resources :leaves
+  resources :forests do
+    resources :seeds do
+      resources :leaves
+    end
+  end
+
   resources :users
   match '/my_account' => 'users#my_account', :as => :my_account
   match '/auth/facebook/callback' => 'sessions#create'

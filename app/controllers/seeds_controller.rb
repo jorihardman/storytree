@@ -43,7 +43,7 @@ class SeedsController < ApplicationController
 
     respond_to do |format|
       if @seed.save
-        format.html { redirect_to(leaf_path(@seed), :notice => 'Seed was successfully created.') }
+        format.html { redirect_to(forest_seed_leaf_path(@seed.id, @seed.id), :notice => 'Seed was successfully created.') }
         format.xml  { render :xml => @seed, :status => :created, :location => @seed }
       else
         format.html { render :action => "new" }

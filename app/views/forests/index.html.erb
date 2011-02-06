@@ -1,27 +1,19 @@
-<h1>Listing forests</h1>
+<h1>Forests</h1>
+
+<%= link_to 'New Forest', new_forest_path %>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Seeds</th>
   </tr>
 
 <% @forests.each do |forest| %>
   <tr>
-    <td><%= forest.name %></td>
+    <td><%= link_to forest.name, forest_path(forest) %></td>
     <td><%= forest.description %></td>
-    <td><%= forest.user_id %></td>
-    <td><%= link_to 'Show', forest %></td>
-    <td><%= link_to 'Edit', edit_forest_path(forest) %></td>
-    <td><%= link_to 'Destroy', forest, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= forest.seeds.count %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Forest', new_forest_path %>

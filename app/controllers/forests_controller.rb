@@ -1,4 +1,6 @@
 class ForestsController < ApplicationController
+  before_filter :require_user
+
   # GET /forests
   # GET /forests.xml
   def index
