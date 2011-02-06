@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @forest.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @forest.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @forest.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_forest_path(@forest) %> |
+<%= link_to 'Back', forests_path %>

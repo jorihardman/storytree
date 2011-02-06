@@ -3,13 +3,17 @@
 <%= form_for @seed do |f| %>
   <%= f.error_messages %>
   <%= f.fields_for :seed_detail, @seed_detail do |d| %>
-    <%= d.label :title %><br/>
-    <%= d.text_field :title %><br/>
-    <br/>
+    <div class='field'>
+      <%= d.label :title %><br/>
+      <%= d.text_field :title %>
+    </div>
   <% end %>
-  <%= f.label :story %><br/>
-  <%= f.text_area :leaf_text %><br/>
+  <div class='field'>
+    <%= f.label :story %><br/>
+    <%= f.text_area :leaf_text %><br/>
+  </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  <br/>
-  <%= f.submit 'Plant' %>
+  <div class='action'>
+    <%= f.submit 'Plant' %>
+  </div>
 <% end %>
