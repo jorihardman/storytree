@@ -13,7 +13,7 @@
   <% @seeds.each do |seed| %>
   <tr>
     <td><%= link_to seed.seed_detail.title, leaf_path(seed) %></td>
-    <td><%= seed.story %></td>
+    <td><%= seed.leaf_text %></td>
     <td><%= seed.author.name %></td>
     <td><%= seed.points %></td>
   </tr>

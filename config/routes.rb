@@ -1,9 +1,9 @@
 Storytree::Application.routes.draw do
   resources :seeds
   resources :leaves
-  match '/leaves/climb' => 'leaves#climb'
 
   resources :users
+  match '/my_account' => 'users#my_account', :as => :my_account
   match '/auth/facebook/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout
 

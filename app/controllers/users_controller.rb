@@ -3,4 +3,7 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def my_account
+  end
 end

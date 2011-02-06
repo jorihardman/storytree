@@ -1,0 +1,16 @@
+<h1><%= @current_user.name %></h2>
+
+<p>Points: <%= @current_user.points %></p>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Points</th>
+  </tr>
+  <% @current_user.leaves.each do |leaf| %>
+  <tr>
+    <td><%= link_to leaf.leaf_text, leaf_path(leaf) %></td>
+    <td><%= leaf.points %></td>
+  </tr>
+  <% end %>
+</table>
