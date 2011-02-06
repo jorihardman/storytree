@@ -34,7 +34,10 @@ class LeavesController < ApplicationController
   def show
     @leaf = Leaf.find(params[:id])
     @branch = Leaf.new
-    @leaf.parent.add_points! if params[:climb] == true
+    if not @leaf.is_root? and flash[:last_leaf] == @leaf.parent
+      flash[:last_leaf].give_point!(current_user)
+    end
+    flash[:last_leaf] = @leaf
 
     respond_to do |format|
       format.html # show.html.erb

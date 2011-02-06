@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110203060247) do
+ActiveRecord::Schema.define(:version => 20110203231839) do
 
   create_table "leaves", :force => true do |t|
     t.text     "leaf_text"
@@ -24,11 +24,19 @@ ActiveRecord::Schema.define(:version => 20110203060247) do
 
   add_index "leaves", ["ancestry"], :name => "index_leaves_on_ancestry"
 
+  create_table "point_transactions", :force => true do |t|
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.integer  "giver_id"
+    t.string   "giver_type"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "seed_details", :force => true do |t|
     t.integer  "seed_id"
     t.string   "title"
-    t.integer  "branch_length"
-    t.boolean  "double_posting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

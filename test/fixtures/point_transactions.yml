@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  receiver_id: 1
+  receiver_type: MyString
+  giver_id: 1
+  giver_type: MyString
+  amount: 1
+
+two:
+  receiver_id: 1
+  receiver_type: MyString
+  giver_id: 1
+  giver_type: MyString
+  amount: 1
