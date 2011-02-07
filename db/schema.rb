@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206175340) do
+ActiveRecord::Schema.define(:version => 20110207013933) do
 
   create_table "forests", :force => true do |t|
     t.string   "name"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20110206175340) do
     t.string   "ancestry"
     t.integer  "points",     :default => 0
     t.string   "type"
-    t.integer  "user_id", :null => false
-    t.integer  "forest_id", :null => false
+    t.integer  "user_id",                   :null => false
+    t.integer  "forest_id",                 :null => false
+    t.string   "title"
   end
 
   add_index "leaves", ["ancestry"], :name => "index_leaves_on_ancestry"
@@ -39,13 +40,6 @@ ActiveRecord::Schema.define(:version => 20110206175340) do
     t.integer  "giver_id"
     t.string   "giver_type"
     t.integer  "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "seed_details", :force => true do |t|
-    t.integer  "seed_id"
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

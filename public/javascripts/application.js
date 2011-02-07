@@ -14,7 +14,7 @@ function bindPages() {
         }
       });
       $('#branches').slideUp('fast', function() {
-        window.location = leaf_id;
+        window.location = leaf_id + '#story';
       });
     });
   });
@@ -31,7 +31,7 @@ function bindBranches() {
           .attr('class', 'page')
           .appendTo('#story')
           .slideDown('fast', function() {
-            window.location = leaf_id;
+            window.location = leaf_id + '#story';
           });
       });
     });

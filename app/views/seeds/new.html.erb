@@ -2,18 +2,14 @@
 
 <%= form_for @seed, :url => forest_seeds_path do |f| %>
   <%= f.error_messages %>
-  <%= f.fields_for :seed_detail, @seed_detail do |d| %>
-    <div class='field'>
-      <%= d.label :title %><br/>
-      <%= d.text_field :title %>
-    </div>
-  <% end %>
+  <div class='field'>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  </div>
   <div class='field'>
     <%= f.label :story %><br/>
     <%= f.text_area :leaf_text %><br/>
   </div>
-  <%= f.hidden_field :forest_id, :value => params[:forest_id] %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class='action'>
     <%= f.submit 'Plant' %>
   </div>

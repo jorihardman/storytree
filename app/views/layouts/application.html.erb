@@ -10,8 +10,40 @@
   <%= yield :head %>
 </head>
 <body>
-  <div id='notice'><%= flash[:notice] %></div>
-  <%= render 'sessions/login' %>
-  <%= yield %>
+  <div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Story Tree</a></h1>
+			<p>write something together</p>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<li><%= link_to 'Home', root_path %></li>
+			<li><%= link_to 'Forests', forests_path %></li>
+			<li><%= link_to 'About', root_path %></li>
+			<li><%= link_to 'Contact Us', root_path %></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+    <%= render 'sessions/login' %>
+		<div id="content">
+		  <div id='notice'><%= flash[:notice] %></div>
+      <%= yield %>
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+</div>
+<!-- end #wrapper -->
+<div id="footer-content">
+	<p>(c) 2011 Storytree</p>
+</div>
+<div id="footer">
+</div>
 </body>
 </html>

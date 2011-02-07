@@ -2,8 +2,7 @@
 
 <p><%= @forest.description %></p>
 
-<%= link_to 'Plant New Seed', new_forest_seed_path(@forest.id) %><br/>
-<br/>
+<%= button_to 'Plant New Seed', new_forest_seed_path(@forest.id), :method => 'get' %>
 
 <table>
   <tr>
@@ -14,7 +13,7 @@
   </tr>
   <% @forest.seeds.each do |seed| %>
   <tr>
-    <td><%= link_to seed.seed_detail.title, forest_seed_leaf_path(seed.id, seed.id) %></td>
+    <td><%= link_to seed.title, forest_seed_leaf_path(@forest.id, seed.id, seed.id) %></td>
     <td><%= seed.leaf_text %></td>
     <td><%= seed.author.name %></td>
     <td><%= seed.points %></td>

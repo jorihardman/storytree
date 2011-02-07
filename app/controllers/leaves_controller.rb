@@ -5,6 +5,9 @@ class LeavesController < ApplicationController
   # POST /leaves.xml
   def create
     @leaf = Leaf.new(params[:leaf])
+    @leaf.parent_id = params[:id]
+    @leaf.forest_id = params[:forest_id]
+    @leaf.user_id = current_user
 
     respond_to do |format|
       if @leaf.save

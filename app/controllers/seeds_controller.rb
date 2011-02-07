@@ -28,7 +28,6 @@ class SeedsController < ApplicationController
   # GET /seeds/new.xml
   def new
     @seed = Seed.new
-    @seed_detail = @seed.build_seed_detail
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,10 +39,12 @@ class SeedsController < ApplicationController
   # POST /seeds.xml
   def create
     @seed = Seed.new(params[:seed])
+    @seed.forest_id = params[:forest_id]
+    @seed.user_id = current_user.id
 
     respond_to do |format|
       if @seed.save
-        format.html { redirect_to(forest_seed_leaf_path(@seed.id, @seed.id), :notice => 'Seed was successfully created.') }
+        format.html { redirect_to(forest_seed_leaf_path(@seed.forest_id, @seed.id, @seed.id), :notice => 'Seed was successfully created.') }
         format.xml  { render :xml => @seed, :status => :created, :location => @seed }
       else
         format.html { render :action => "new" }

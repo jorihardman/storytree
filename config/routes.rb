@@ -1,7 +1,11 @@
 Storytree::Application.routes.draw do
   resources :forests do
     resources :seeds do
-      resources :leaves
+      resources :leaves do
+        member do
+          post 'create'
+        end
+      end
     end
   end
 

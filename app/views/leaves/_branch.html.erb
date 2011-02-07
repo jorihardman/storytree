@@ -1,0 +1,8 @@
+<div id='<%= branch.id %>' class='branch'>
+  <div class='stats'>
+    [<%= branch.points %> points]
+    [<%= branch.children.count %> branches]
+    [by <%= branch.author.name %>]
+  </div>
+  <%= branch.leaf_text %>
+</div>

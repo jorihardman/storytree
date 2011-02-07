@@ -1,12 +1,5 @@
 //append newly created branch to branches
-$('#branches').append([
-  "<div id='<%= @leaf.id %>' class='branch'>",
-  "<div class='stats'>",
-  "[<%= @leaf.points %> points] [<%= @leaf.children.count %> branches]",
-  "</div>",
-  "<%= @leaf.leaf_text %>",
-  "</div>"
-].join(''));
+$('#branches').append('<%= escape_javascript(render(:partial => 'branch', :object => @leaf)) %>');
 
 //animate new branch
 $('#<%= @leaf.id %>')
