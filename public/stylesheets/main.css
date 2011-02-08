@@ -211,7 +211,7 @@ h2 a {
 
 #page {
 	width: 900px;
-	min-height: 500px;
+	min-height: 650px;
 	margin: 0px auto;
 	padding: 0px 50px 0px 50px;
 	background: #FFFFFF;
@@ -433,7 +433,7 @@ h2 a {
 }
 
 #footer {
-	height: 50px;
+	height: 20px;
 	margin: 0 auto;
 	padding: 0px 0 15px 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -527,7 +527,7 @@ div.field, div.actions {
 table {
   margin-top: 20px;
   border-collapse: collapse;
-  width: 750px;
+  width: inherit;
 }
 
 table th {
@@ -547,3 +547,5 @@ table td {
 	background: white;
 	color: black;
 }
+
+#temp { text-align: center; }
