@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	acts_as_authentic
   has_many :leaves
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
   has_many :points_given, :class_name => 'PointTransaction', :foreign_key => 'giver_id'
@@ -18,5 +19,13 @@ class User < ActiveRecord::Base
     point.receiver = self
     point.giver = giver
     point.save
+  end
+
+  private
+
+  # workaround for mongomapper bug
+  # http://bit.ly/bcQn3z
+  def to_key
+    [id.to_s]
   end
 end
