@@ -1,9 +1,7 @@
-<div id='login'>
-  <% if current_user %>
-    Welcome <%= current_user.name %>
-    [<%= link_to 'Dashboard', my_account_path %> |
-     <%= link_to 'Logout', signout_path %>]
-  <% else %>
-    <%= link_to image_tag('facebook_connect.gif'), '/storytree/auth/facebook' %>
-  <% end %>
+<div id="login">
+<% if current_user %>
+  Welcome <%= current_user.login %> [ <%= link_to "My Account", my_account_path %> | <%= link_to "Logout", session_path, :method => :delete %> ]
+<% else %>
+  [ <%= link_to "Login", new_session_path %> | <%= link_to "Register", new_user_path %> ]
+<% end %>
 </div>

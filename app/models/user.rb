@@ -21,8 +21,6 @@ class User < ActiveRecord::Base
     point.save
   end
 
-  private
-
   # workaround for mongomapper bug
   # http://bit.ly/bcQn3z
   def to_key

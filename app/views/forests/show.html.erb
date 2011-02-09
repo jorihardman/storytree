@@ -15,7 +15,7 @@
   <tr>
     <td><%= link_to seed.title, forest_seed_leaf_path(@forest.id, seed.id, seed.id) %></td>
     <td><%= seed.leaf_text %></td>
-    <td><%= seed.author.name %></td>
+    <td><%= seed.author.login %></td>
     <td><%= seed.points %></td>
   </tr>
   <% end %>

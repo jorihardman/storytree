@@ -1,8 +1,6 @@
 class LeavesController < ApplicationController
   before_filter :require_user
 
-  # POST /leaves
-  # POST /leaves.xml
   def create
     @leaf = Leaf.new(params[:leaf])
     @leaf.parent_id = params[:id]
@@ -10,7 +8,7 @@ class LeavesController < ApplicationController
     @leaf.user_id = current_user.id
 
     respond_to do |format|
-      if @leaf.save
+      if @leaf.save!
         format.js # create.js.erb
         format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
       else
@@ -20,8 +18,6 @@ class LeavesController < ApplicationController
     end
   end
 
-  # DELETE /leaves/1
-  # DELETE /leaves/1.xml
   def destroy
     @leaf = Leaf.find(params[:id])
     @leaf.destroy
@@ -32,8 +28,6 @@ class LeavesController < ApplicationController
     end
   end
 
-  # GET /leaves/1
-  # GET /leaves/1.xml
   def show
     @leaf = Leaf.find(params[:id])
     @branch = Leaf.new

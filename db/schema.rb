@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110207013933) do
+ActiveRecord::Schema.define(:version => 20110209043200) do
 
   create_table "forests", :force => true do |t|
     t.string   "name"
@@ -55,11 +55,23 @@ ActiveRecord::Schema.define(:version => 20110207013933) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.string   "fbook_id"
-    t.string   "name"
-    t.integer  "points",     :default => 0
+    t.string   "login",                            :null => false
+    t.string   "crypted_password",                 :null => false
+    t.string   "password_salt",                    :null => false
+    t.string   "persistence_token",                :null => false
+    t.integer  "login_count",       :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "last_login_at"
+    t.datetime "current_login_at"
+    t.string   "last_login_ip"
+    t.string   "current_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",                            :null => false
+    t.integer  "points",            :default => 0
   end
+
+  add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
+  add_index "users", ["login"], :name => "index_users_on_pen_name"
 
 end

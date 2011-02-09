@@ -1,13 +1,13 @@
-<h1><%= @current_user.name %></h2>
+<h1><%= current_user.login %></h2>
 
-<p>Points: <%= @current_user.points %></p>
+<p>Points: <%= current_user.points %></p>
 
 <table>
   <tr>
     <th>Text</th>
     <th>Points</th>
   </tr>
-  <% @current_user.leaves.order('points desc').each do |leaf| %>
+  <% current_user.leaves.order('points desc').each do |leaf| %>
   <tr>
     <td><%= link_to leaf.leaf_text, forest_seed_leaf_path(leaf.forest_id, leaf.root, leaf.id) %></td>
     <td><%= leaf.points %></td>

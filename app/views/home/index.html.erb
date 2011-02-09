@@ -2,7 +2,7 @@
 
 <p>
 Story tree is a social game that lets you collaboratively build stories with friends.
-Log in through Facebook to start playing.
+Register or log in to start playing.
 </p>
 
 <h2>Hot seeds right now</h2>
@@ -18,7 +18,7 @@ Log in through Facebook to start playing.
   <tr>
     <td><%= link_to seed.title, forest_seed_leaf_path(seed.forest_id, seed.id, seed.id) %></td>
     <td><%= seed.leaf_text %></td>
-    <td><%= seed.author.name %></td>
+    <td><%= seed.author.login %></td>
     <td><%= seed.points %></td>
   </tr>
   <% end %>
