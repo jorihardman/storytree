@@ -7,7 +7,7 @@ class LeavesController < ApplicationController
     @leaf = Leaf.new(params[:leaf])
     @leaf.parent_id = params[:id]
     @leaf.forest_id = params[:forest_id]
-    @leaf.user_id = current_user
+    @leaf.user_id = current_user.id
 
     respond_to do |format|
       if @leaf.save

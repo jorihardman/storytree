@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     unless current_user
-      flash[:notice] = 'You must be log in to Facebook first'
+      flash[:notice] = 'You must log in through Facebook first'
       redirect_to root_path
       return false
     end
