@@ -1,16 +1,18 @@
 class Leaf < ActiveRecord::Base
+  #relationships
   has_ancestry
   belongs_to :forest
   belongs_to :author, :class_name => 'User', :foreign_key => 'user_id'
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
 
+  #validations
   validates_presence_of :leaf_text
   validates_length_of :leaf_text, :minimum => 10
 
   before_create :parent_point
 
   def story
-    ancestors.inject(""){ |outcome, cur| outcome + "#{cur.leaf_text}\n" } + leaf_text
+    ancestors + [self]
   end
 
   def give_point!(giver)
@@ -30,5 +32,9 @@ class Leaf < ActiveRecord::Base
     unless is_root?
       parent.give_point!(author)
     end
+  end
+
+  def last_page
+    [ancestors.count / 5 + 1, 1].max
   end
 end

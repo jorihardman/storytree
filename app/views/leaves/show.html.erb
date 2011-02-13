@@ -1,22 +1,21 @@
 <h1><%= @leaf.root.title %></h1>
 
 <div id='story' class='dialogue'>
-  <% @leaf.ancestors.each do |leaf|  %>
-    <div id='<%= leaf.id %>' class='page'>
-      <%= leaf.leaf_text %>
+  <% @ancestors.each do |ancestor|  %>
+    <div id='<%= ancestor.id %>' class='page'>
+      <%= ancestor.leaf_text %>
     </div>
   <% end %>
-  <div id='<%= @leaf.id %>' class='current'>
-    <%= @leaf.leaf_text %>
-  </div>
 </div>
+<%= will_paginate @ancestors, :param_name => 'story_page' %>
 
 <h3>Choose the next Leaf</h3>
 <div id='branches' class='dialogue' style='display:none;'>
-  <% @leaf.children.each do |branch| %>
+  <% @branches.each do |branch| %>
     <%= render :partial => 'branch', :object => branch %>
   <% end %>
 </div>
+<%= will_paginate @branches, :param_name => 'branch_page' %>
 
 <h3>Write your own Leaf</h3>
 <div id='leaf' class='dialogue'>
