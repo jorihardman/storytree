@@ -1,6 +1,6 @@
 <h1>New forest</h1>
 
-<%= form_for(@forest) do |f| %>
+<%= form_for @forest, :validations => true do |f| %>
   <%= f.error_messages %>
   <div class="field">
     <%= f.label :name %><br />

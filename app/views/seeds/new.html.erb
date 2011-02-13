@@ -1,6 +1,6 @@
 <h1>Plant Seed</h1>
 
-<%= form_for @seed, :url => forest_seeds_path do |f| %>
+<%= form_for @seed, :url => forest_seeds_path, :validations => true do |f| %>
   <%= f.error_messages %>
   <div class='field'>
     <%= f.label :title %><br/>

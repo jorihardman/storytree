@@ -2,7 +2,6 @@ $(document).ready(function() {
   $('#branches').slideDown('fast');
   bindPages();
   bindBranches();
-  validateSeeds();
 });
 
 function bindPages() {
@@ -46,15 +45,4 @@ function bindBranches() {
       $(this).animate({marginLeft: '0px'}, 'fast');
     }
   );
-}
-
-function validateSeeds() {
-  $('#new_leaf').validate({
-    rules: {
-      'leaf[leaf_text]': {
-        minlength: 10,
-        required: true
-      }
-    }
-  });
 }

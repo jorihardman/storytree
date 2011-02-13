@@ -1,7 +1,3 @@
-<% content_for :head do %>
-  <%= javascript_include_tag 'leaves.js' %>
-<% end %>
-
 <h1><%= @leaf.root.title %></h1>
 
 <div id='story' class='dialogue'>
@@ -26,7 +22,7 @@
 <div id='leaf' class='dialogue'>
   <%= form_for @branch,
     :url => forest_seed_leaf_path(params[:forest_id], params[:seed_id], params[:id]),
-    :remote => true do |f| %>
+    :remote => true, :validations => true do |f| %>
     <div class='field'>
       <%= f.text_area :leaf_text, :rows => 5 %><br/>
     </div>

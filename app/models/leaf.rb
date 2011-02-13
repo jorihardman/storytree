@@ -4,7 +4,8 @@ class Leaf < ActiveRecord::Base
   belongs_to :author, :class_name => 'User', :foreign_key => 'user_id'
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
 
-  validates :leaf_text, :presence => true, :length => {:minimum => 10}
+  validates_presence_of :leaf_text
+  validates_length_of :leaf_text, :minimum => 10
 
   before_create :parent_point
 
