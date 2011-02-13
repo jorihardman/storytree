@@ -508,16 +508,10 @@ div.field, div.actions {
 }
 
 /* end rails presets */
-
-.dialogue {
-  border: 1px solid #b1b1b1;
-  padding: 10px;
+.branch, .page {
   width: 500px;
-}
-
-.branch, .page, .current {
-  border: 1px dotted #b1b1b1;
-  margin: 5px 0 5px 0;
+  border: 1px dotted #88db57;
+  margin: 5px 5px 5px 5px;
 }
 
 #login { float: right; }
