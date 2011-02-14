@@ -6,5 +6,8 @@ $('#<%= @leaf.id %>')
   .hide()
   .slideDown('fast');
 
+//bind events to the new branch
+bindBranches();
+
 //clear leaf form
 $('#leaf_leaf_text').val('');

@@ -2,7 +2,7 @@
 
 <div id='story'>
   <% @ancestors.each do |ancestor|  %>
-    <div id='<%= ancestor.id %>' class='page'>
+    <div id='<%= ancestor.id %>' class='ancestor'>
       <%= ancestor.leaf_text %>
     </div>
   <% end %>

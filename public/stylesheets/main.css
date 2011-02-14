@@ -508,10 +508,23 @@ div.field, div.actions {
 }
 
 /* end rails presets */
-.branch, .page {
+#story {
   width: 500px;
   border: 1px dotted #88db57;
-  margin: 5px 5px 5px 5px;
+}
+
+#branches { width: 500px; }
+
+.branch {
+  border: 1px dotted #88db57;
+  margin: 5px 0px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.ancestor {
+  width: inherit;
+  margin: 5px 0px 5px;
+  padding: 1px 5px 1px 5px;
 }
 
 #login { float: right; }
