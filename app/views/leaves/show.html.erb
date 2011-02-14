@@ -1,3 +1,15 @@
+<% content_for :head do %>
+<script>
+  $(document).ready(function() {
+    window.location = '#story';
+    $('#branches').slideDown('fast');
+    bindAncestors();
+    bindBranches();
+    bindPageLinks();
+  });
+</script>
+<% end %>
+
 <h1><%= @leaf.root.title %></h1>
 
 <div id='story'>

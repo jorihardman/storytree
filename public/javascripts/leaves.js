@@ -1,11 +1,3 @@
-$(document).ready(function() {
-  window.location = '#story';
-  $('#branches').slideDown('fast');
-  bindAncestors();
-  bindBranches();
-  bindPageLinks();
-});
-
 function bindAncestors() {
   $('.ancestor').click(function() {
     leaf_id = this.id;
