@@ -15,6 +15,9 @@ Storytree::Application.routes.draw do
   #match '/auth/facebook/callback' => 'sessions#create'
   #match '/signout' => 'sessions#destroy', :as => :signout
 
+  match '/home/about', :as => :about
+  match '/home/contact_us', :as => :contact_us
+
   root :to => 'home#index'
 
   # The priority is based upon order of creation:
