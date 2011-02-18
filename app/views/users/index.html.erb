@@ -5,10 +5,10 @@
     <th>Pen Name</th>
     <th>Points</th>
   </tr>
-  <tr>
-    <% @users.each do |user| %>
+  <% @users.each do |user| %>
+    <tr>    
       <td><%= user.login %></td>
       <td><%= user.points %></td>
-    <% end %>
-  </tr>
+    </tr>
+  <% end %>
 </table>
