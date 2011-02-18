@@ -28,7 +28,7 @@
 	</div>
 	<!-- end #menu -->
 	<div id="page">
-    <%= render 'user_sessions/login' %>
+    <%= raw(login) %>
 		<div id="content">
 		  <div id='notice'><%= flash[:notice] %></div>
       <%= yield %>

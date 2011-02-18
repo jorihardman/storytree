@@ -31,8 +31,8 @@ class LeavesController < ApplicationController
   def show
     @leaf = Leaf.find(params[:id])
     @branch = Leaf.new
-    @ancestors = @leaf.story.paginate :page => params[:story_page] || @leaf.last_page, :per_page => 5
-    @branches = @leaf.children.order('points DESC').paginate :page => params[:branch_page], :per_page => 5
+    @ancestors = @leaf.story.paginate :page => params[:story_page] || @leaf.last_page, :per_page => 7
+    @branches = @leaf.children.order('points DESC').paginate :page => params[:branch_page], :per_page => 7
 
     if not @leaf.is_root? and flash[:last_leaf] == @leaf.parent
       flash[:last_leaf].give_point!(current_user)

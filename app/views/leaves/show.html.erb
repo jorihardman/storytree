@@ -24,7 +24,7 @@
 <h3>Choose the next Leaf</h3>
 <div id='branches' style='display:none;'>
   <% @branches.each do |branch| %>
-    <%= render :partial => 'branch', :object => branch %>
+    <%= raw(branch(branch)) %>
   <% end %>
 </div>
 <%= will_paginate @branches, :param_name => 'branch_page' %>
