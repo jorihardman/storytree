@@ -6,8 +6,8 @@
     <th>Points</th>
   </tr>
   <% @users.each do |user| %>
-    <tr>    
-      <td><%= user.login %></td>
+    <tr>
+      <td><%= link_to user.login, author_path(user.id) %></td>
       <td><%= user.points %></td>
     </tr>
   <% end %>
