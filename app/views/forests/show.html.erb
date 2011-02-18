@@ -4,19 +4,4 @@
 
 <%= button_to 'Plant New Seed', new_forest_seed_path(@forest.id), :method => :get %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Author</th>
-    <th>Points</th>
-  </tr>
-  <% @forest.seeds.each do |seed| %>
-  <tr>
-    <td><%= link_to seed.title, forest_seed_leaf_path(@forest.id, seed.id, seed.id) %></td>
-    <td><%= seed.leaf_text %></td>
-    <td><%= seed.author.login %></td>
-    <td><%= seed.points %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render :partial => 'leaves/leaves', :object => @forest.seeds, :as => :leaves %>

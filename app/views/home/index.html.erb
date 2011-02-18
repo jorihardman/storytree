@@ -8,19 +8,4 @@
 
 <h2>Hot seeds right now</h2>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Author</th>
-    <th>Points</th>
-  </tr>
-  <% @seeds.each do |seed| %>
-  <tr>
-    <td><%= link_to seed.title, forest_seed_leaf_path(seed.forest_id, seed.id, seed.id) %></td>
-    <td><%= seed.leaf_text %></td>
-    <td><%= seed.author.login %></td>
-    <td><%= seed.points %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render :partial => 'leaves/leaves', :object => @seeds, :as => :leaves %>

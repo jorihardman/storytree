@@ -1,1 +1,16 @@
 <h1><%= @user.login %></h1>
+
+<p>Points: <%= @user.points %></p>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Points</th>
+  </tr>
+  <% @user.leaves.order('points desc').each do |leaf| %>
+  <tr>
+    <td><%= link_to leaf.leaf_text, forest_seed_leaf_path(leaf.forest_id, leaf.root, leaf.id) %></td>
+    <td><%= leaf.points %></td>
+  </tr>
+  <% end %>
+</table>

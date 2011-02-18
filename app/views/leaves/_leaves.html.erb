@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Author</th>
+    <th>Points</th>
+  </tr>
+  <% leaves.each do |leaf| %>
+  <tr>
+    <td><%= link_to leaf.title, forest_seed_leaf_path(leaf.forest_id, leaf.root.id, leaf.id) %></td>
+    <td><%= leaf.leaf_text %></td>
+    <td><%= link_to leaf.author.login, user_path(leaf.author.id) %></td>
+    <td><%= leaf.points %></td>
+  </tr>
+  <% end %>
+</table>
