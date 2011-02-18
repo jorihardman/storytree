@@ -9,7 +9,7 @@ Storytree::Application.routes.draw do
     end
   end
 
-  resources :users
+  resources :authors, :to => 'users'
   resource :session, :to => 'user_sessions'
   match '/my_account' => 'users#my_account', :as => :my_account
   #match '/auth/facebook/callback' => 'sessions#create'

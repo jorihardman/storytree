@@ -5,7 +5,7 @@ module LeavesHelper
         <div class="stats">
           [#{leaf.points} points]
           [#{leaf.children.count} branches]
-          [by #{link_to leaf.author.login, user_path(leaf.author.id)}]
+          [by #{link_to leaf.author.login, author_path(leaf.author.id)}]
         </div>
         #{leaf.leaf_text}
       </div>

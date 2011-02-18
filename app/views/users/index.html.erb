@@ -1,0 +1,14 @@
+<h1>Top Authors</h1>
+
+<table>
+  <tr>
+    <th>Pen Name</th>
+    <th>Points</th>
+  </tr>
+  <tr>
+    <% @users.each do |user| %>
+      <td><%= user.login %></td>
+      <td><%= user.points %></td>
+    <% end %>
+  </tr>
+</table>
