@@ -510,6 +510,7 @@ div.field, div.actions {
 /* end rails presets */
 #story {
   width: 500px;
+  padding: 10px;
   border: 1px dotted #88db57;
 }
 
@@ -523,7 +524,6 @@ div.field, div.actions {
 
 .ancestor {
   width: inherit;
-  margin: 5px 0px 5px;
   padding: 1px 5px 1px 5px;
 }
 

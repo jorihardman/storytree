@@ -1,5 +1,5 @@
 //append newly created branch to branches
-$('#branches').append('<%= escape_javascript(render(:partial => 'branch', :object => @leaf)) %>');
+$('#branches').append('<%= escape_javascript(raw(branch(@leaf))) %>');
 
 //animate new branch
 $('#<%= @leaf.id %>')
