@@ -10,17 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209043200) do
+ActiveRecord::Schema.define(:version => 20110219001924) do
 
-  create_table "forests", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "leaves", :force => true do |t|
+  create_table "branches", :force => true do |t|
     t.text     "leaf_text"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,7 +24,13 @@ ActiveRecord::Schema.define(:version => 20110209043200) do
     t.string   "title"
   end
 
-  add_index "leaves", ["ancestry"], :name => "index_leaves_on_ancestry"
+  create_table "forests", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "point_transactions", :force => true do |t|
     t.integer  "receiver_id"
@@ -40,6 +38,15 @@ ActiveRecord::Schema.define(:version => 20110209043200) do
     t.integer  "giver_id"
     t.string   "giver_type"
     t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seed_details", :force => true do |t|
+    t.integer  "seed_id"
+    t.string   "title"
+    t.integer  "branch_length"
+    t.boolean  "double_posting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

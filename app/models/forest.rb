@@ -1,9 +1,9 @@
 class Forest < ActiveRecord::Base
-  has_many :leaves
+  has_many :branches
 
   validates_presence_of :name, :description
 
   def seeds
-    leaves.where({:type => 'seed'})
+    branches.where({:type => 'seed'})
   end
 end

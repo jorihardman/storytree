@@ -15,8 +15,8 @@ class SeedsController < ApplicationController
   # GET /seeds/1
   # GET /seeds/1.xml
   def show
-    @leaf = Seed.find(params[:id])
-    @branch = Leaf.new
+    @branch = Seed.find(params[:id])
+    @branch = Branch.new
 
     respond_to do |format|
       format.html { render 'leaves/show' }
@@ -44,7 +44,7 @@ class SeedsController < ApplicationController
 
     respond_to do |format|
       if @seed.save
-        format.html { redirect_to(forest_seed_leaf_path(@seed.forest_id, @seed.id, @seed.id), :notice => 'Seed was successfully created.') }
+        format.html { redirect_to(forest_seed_branch_path(@seed.forest_id, @seed.id, @seed.id), :notice => 'Seed was successfully created.') }
         format.xml  { render :xml => @seed, :status => :created, :location => @seed }
       else
         format.html { render :action => "new" }

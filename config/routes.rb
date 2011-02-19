@@ -1,7 +1,7 @@
 Storytree::Application.routes.draw do
   resources :forests do
     resources :seeds do
-      resources :leaves do
+      resources :branches do
         member do
           post 'create'
         end

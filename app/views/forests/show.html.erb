@@ -4,4 +4,4 @@
 
 <%= button_to 'Plant New Seed', new_forest_seed_path(@forest.id), :method => :get %>
 
-<%= render :partial => 'leaves/leaves', :object => @forest.seeds, :as => :leaves %>
+<%= render :partial => 'branches/list', :object => @forest.seeds, :as => :branches %>

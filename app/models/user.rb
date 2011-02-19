@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	acts_as_authentic
-  has_many :leaves
+  has_many :branches
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
   has_many :points_given, :class_name => 'PointTransaction', :foreign_key => 'giver_id'
 

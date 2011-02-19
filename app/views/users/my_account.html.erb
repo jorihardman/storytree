@@ -7,9 +7,9 @@
     <th>Text</th>
     <th>Points</th>
   </tr>
-  <% current_user.leaves.order('points desc').each do |leaf| %>
+  <% current_user.branches.order('points desc').each do |leaf| %>
   <tr>
-    <td><%= link_to leaf.leaf_text, forest_seed_leaf_path(leaf.forest_id, leaf.root, leaf.id) %></td>
+    <td><%= link_to leaf.leaf_text, forest_seed_branch_path(leaf.forest_id, leaf.root, leaf.id) %></td>
     <td><%= leaf.points %></td>
   </tr>
   <% end %>

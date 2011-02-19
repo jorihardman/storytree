@@ -1,4 +1,4 @@
-class Leaf < ActiveRecord::Base
+class Branch < ActiveRecord::Base
   #relationships
   has_ancestry
   belongs_to :forest

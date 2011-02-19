@@ -10,7 +10,7 @@
 </script>
 <% end %>
 
-<h1><%= @leaf.root.title %></h1>
+<h1><%= @branch.root.title %></h1>
 
 <div id='story'>
   <% @ancestors.each do |ancestor|  %>
@@ -21,7 +21,7 @@
 </div>
 <%= will_paginate @ancestors, :param_name => 'story_page' %>
 
-<h3>Choose the next Leaf</h3>
+<h3>Choose the next branch</h3>
 <div id='branches' style='display:none;'>
   <% @branches.each do |branch| %>
     <%= raw(branch(branch)) %>
@@ -29,9 +29,9 @@
 </div>
 <%= will_paginate @branches, :param_name => 'branch_page' %>
 
-<h3>Write your own Leaf</h3>
-<%= form_for @branch,
-  :url => forest_seed_leaf_path(params[:forest_id], params[:seed_id], params[:id]),
+<h3>Write your own branch</h3>
+<%= form_for @new_branch,
+  :url => forest_seed_branch_path(params[:forest_id], params[:seed_id], params[:id]),
   :remote => true, :validations => true do |f| %>
   <div class='field'>
     <%= f.text_area :leaf_text, :rows => 5 %><br/>

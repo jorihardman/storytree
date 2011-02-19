@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class LeavesControllerTest < ActionController::TestCase
+class BranchesControllerTest < ActionController::TestCase
   setup do
-    @leaf = leaves(:one)
+    @branch = leaves(:one)
   end
 
   test "should get index" do
@@ -18,30 +18,30 @@ class LeavesControllerTest < ActionController::TestCase
 
   test "should create leaf" do
     assert_difference('Leaf.count') do
-      post :create, :leaf => @leaf.attributes
+      post :create, :branch => @branch.attributes
     end
 
-    assert_redirected_to leaf_path(assigns(:leaf))
+    assert_redirected_to leaf_path(assigns(:branch))
   end
 
   test "should show leaf" do
-    get :show, :id => @leaf.to_param
+    get :show, :id => @branch.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @leaf.to_param
+    get :edit, :id => @branch.to_param
     assert_response :success
   end
 
   test "should update leaf" do
-    put :update, :id => @leaf.to_param, :leaf => @leaf.attributes
-    assert_redirected_to leaf_path(assigns(:leaf))
+    put :update, :id => @branch.to_param, :branch => @branch.attributes
+    assert_redirected_to leaf_path(assigns(:branch))
   end
 
   test "should destroy leaf" do
     assert_difference('Leaf.count', -1) do
-      delete :destroy, :id => @leaf.to_param
+      delete :destroy, :id => @branch.to_param
     end
 
     assert_redirected_to leaves_path

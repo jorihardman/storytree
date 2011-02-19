@@ -1,8 +1,8 @@
 //append newly created branch to branches
-$('#branches').append('<%= escape_javascript(raw(branch(@leaf))) %>');
+$('#branches').append('<%= escape_javascript(raw(branch(@branch))) %>');
 
 //animate new branch
-$('#<%= @leaf.id %>')
+$('#<%= @branch.id %>')
   .hide()
   .slideDown('fast');
 
