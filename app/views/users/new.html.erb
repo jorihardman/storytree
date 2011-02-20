@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<% form_for @user do |f| %>
+<% form_for @user, :url => authors_path do |f| %>
   <%= f.error_messages %>
   <%= f.label :login, 'Pen Name' %><br />
   <%= f.text_field :login %><br />
