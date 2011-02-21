@@ -38,4 +38,30 @@ class UsersController < ApplicationController
 
   def my_account
   end
+
+  def follow
+    @relationship = UserRelationship.new
+    @relationship.follower_id = current_user.id
+    @relationship.guide_id = params[:id]
+
+    respond_to do |format|
+      if @relationship.save!
+        format.js
+        format.xml  { render :xml => @relationship, :status => :created }
+      else
+        format.js
+        format.xml  { render :xml => @relationship.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def unfollow
+    @relationship = UserRelationship.where({:follower_id => current_user.id, :guide_id => params[:id]}).first
+    @relationship.destroy
+
+    respond_to do |format|
+        format.js { render 'follow' }
+        format.xml { head :ok }
+    end
+  end
 end

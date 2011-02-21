@@ -3,11 +3,17 @@ class User < ActiveRecord::Base
   has_many :branches
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
   has_many :points_given, :class_name => 'PointTransaction', :foreign_key => 'giver_id'
+	has_many :followers, :through => 'user_relationships',
+    :class_name => 'User',
+    :foreign_key => 'guide_id'
+	has_many :guides, :through => 'user_relationships',
+	  :class_name => 'User',
+	  :foreign_key => 'follower_id'
 
   def self.create_with_omniauth(auth)
     create! do |user|
-      user.fbook_id = auth['uid']
-      user.name = auth['user_info']['name']
+      user.fbook_id = auth[:uid]
+      user.name = auth[:user_info][:name]
     end
   end
 

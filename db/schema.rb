@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219183944) do
+ActiveRecord::Schema.define(:version => 20110219200346) do
 
   create_table "branches", :force => true do |t|
     t.text     "leaf_text"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(:version => 20110219183944) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "user_relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "guide_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                            :null => false
