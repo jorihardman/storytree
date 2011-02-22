@@ -1,7 +1,7 @@
 <h1><%= @user.login %></h1>
 
 <div id='follow'>
-  <p><%= raw(follow(@user.id)) %></p>
+  <%= raw(follow(@user.id)) %>
 </div>
 
 <p>Points: <%= @user.points %></p>
