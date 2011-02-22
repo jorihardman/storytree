@@ -1,11 +1,13 @@
 <table>
   <tr>
+    <th>Title</th>
     <th>Text</th>
     <th>Author</th>
     <th>Points</th>
   </tr>
   <% branches.each do |branch| %>
   <tr>
+    <td><%= link_to branch.title, forest_seed_branch_path(branch.forest_id, branch.root.id, branch.id) %></td>
     <td><%= branch.leaf_text %></td>
     <td><%= link_to branch.author.login, author_path(branch.author.id) %></td>
     <td><%= branch.points %></td>

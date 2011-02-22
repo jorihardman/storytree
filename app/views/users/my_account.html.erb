@@ -1,16 +1,24 @@
-<h1><%= current_user.login %></h2>
+<h1>My Account</h1>
 
 <p>Points: <%= current_user.points %></p>
 
+<p>Followers: <%= current_user.followers.count %></p>
+
+<h2>My Branches</h2>
 <table>
   <tr>
     <th>Text</th>
     <th>Points</th>
+    <th>Seed?</th>
   </tr>
-  <% current_user.branches.order('points desc').each do |leaf| %>
+  <% current_user.branches.order('points desc').each do |branch| %>
   <tr>
-    <td><%= link_to leaf.leaf_text, forest_seed_branch_path(leaf.forest_id, leaf.root, leaf.id) %></td>
-    <td><%= leaf.points %></td>
+    <td><%= link_to branch.leaf_text, forest_seed_branch_path(branch.forest_id, branch.root, branch.id) %></td>
+    <td><%= branch.points %></td>
+    <td><%= branch.is_root? %></td>
   </tr>
   <% end %>
 </table>
+
+<h2>Guide Branches</h2>
+<%= render :partial => 'branches/list', :object => @guide_branches, :as => :branches %>

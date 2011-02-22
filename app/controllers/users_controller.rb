@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
@@ -37,6 +38,8 @@ class UsersController < ApplicationController
   end
 
   def my_account
+    @user_branches = current_user.branches.order('points DESC').paginate :page => params[:user_page], :per_page => 30
+    @guide_branches = current_user.guide_branches
   end
 
   def follow
