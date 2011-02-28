@@ -15,7 +15,7 @@
 <body>
   <div id="topnav">
     <div id="logo">
-      <a href="<%= root_path %>"><img src="<%= root_path %>/images/logo.gif" alt"logo" width="125" height="30"/></a>
+      <%= link_to image_tag('logo.gif', :size => '125x30', :alt => 'StoryTree'), root_path %>
     </div>
     <ul id="nav">
       <li><%= link_to 'Home', root_path %></li>
@@ -30,7 +30,6 @@
     <div id="searchwrapper">
       <form action="">
         <input type="text" class="searchbox" name="search" />
-        <input type="image" src="<%= root_path %>/images/search.gif" class="searchbox_submit" />
       </form>
     </div>
   </div> <!-- END OF TOP NAV BAR-->
