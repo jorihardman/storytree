@@ -3,6 +3,9 @@
 <head>
   <title>Storytree</title>
   <%= stylesheet_link_tag :all %>
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <!--[endif]-->
   <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js' %>
   <%= javascript_include_tag 'http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js' %>
   <%= javascript_include_tag 'client_side_validations', 'branches.js', 'rails.js' %>
@@ -10,41 +13,52 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div id="wrapper">
-	<div id="header">
-		<div id="logo">
-			<h1><%= link_to 'Story Tree', root_path %></h1>
-			<p>grow something together</p>
-		</div>
-	</div>
-	<!-- end #header -->
-	<div id="menu">
-		<ul>
-			<li><%= link_to 'Home', root_path %></li>
+  <div id="topnav">
+    <div id="logo">
+      <a href="/"><img src="/images/logo.gif" alt"logo" width="125" height="30"/></a>
+    </div>
+    <ul id="nav">
+      <li><%= link_to 'Home', root_path %></li>
 			<li><%= link_to 'Forests', forests_path %></li>
 			<li><%= link_to 'Authors', authors_path %></li>
 			<li><%= link_to 'About', about_path %></li>
 			<li><%= link_to 'Contact Us', contact_us_path %></li>
-		</ul>
-	</div>
-	<!-- end #menu -->
-	<div id="page">
-    <%= raw(login) %>
-		<div id="content">
-		  <div id='notice'><%= flash[:notice] %></div>
+    </ul>
+    <ul id="login">
+      <li><a href="#">Log in</a></li>
+    </ul>
+    <div id="searchwrapper">
+      <form action="">
+        <input type="text" class="searchbox" name="search" />
+        <input type="image" src="/images/search.gif" class="searchbox_submit" />
+      </form>
+    </div>
+  </div> <!-- END OF TOP NAV BAR-->
+  <div id="page">
+    <div id="content">
+      <div id='notice'><%= flash[:notice] %></div>
       <%= yield %>
-			<div style="clear: both;">&nbsp;</div>
-		</div>
-		<!-- end #content -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<!-- end #page -->
-</div>
-<!-- end #wrapper -->
-<div id="footer-content">
-	<p>(c) 2011 Storytree</p>
-</div>
-<div id="footer">
-</div>
+    </div> <!-- END main-content-->
+    <!--SIDE BAR LINKS NOT NEEDED FOR MVP
+    <aside>
+      <nav> -->
+        <!--
+        <img src="#">
+        <ul id="side-forest">
+        <li> # insert user name# </li>
+        </ul>
+        <ul>
+          <li> <strong>Friends</strong> <a href="#"></li>
+          <a href="#"> <img src="#"/> </a>
+          <li> <strong>Forests</strong> <a href="#"></a></li>
+        </ul>
+        <ul id="side-forest">
+        <li> # insert forest paths# </li>
+        </ul>
+      </nav>
+    </aside>
+    -->
+    <div id="footer"><p>Copyright Storytree 2011</p></div>
+  </div> <!-- END page -->
 </body>
 </html>
