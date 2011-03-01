@@ -23,7 +23,7 @@ function bindAncestors() {
 function bindBranches() {
   $('.branch').click(function() {
     leaf_id = this.id;
-    $('html, body').animate({scrollTop: $('#story').offset().top}, 'fast', function() {
+    $('#branches').slideUp('fast', function() {
       $('#'+leaf_id+' > .stats').hide()
       $('#'+leaf_id)
         .hide()

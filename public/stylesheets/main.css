@@ -5,6 +5,7 @@ html, body {
 }
 
 body {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
   background: url('../images/background.svg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
