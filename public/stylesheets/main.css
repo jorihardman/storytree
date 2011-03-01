@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background: url('../images/background.jpg') no-repeat center center fixed;
+  background: url('../images/background.svg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -13,7 +13,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  color: #3e7b2d;
+  color: #79b53e;
   margin-bottom: 10px;
 }
 
@@ -29,70 +29,49 @@ p {
   background-image:url('../images/topnav.gif');
 }
 
-#logo { float: left; }
-
-#logo a {
-  border-right: 1px solid #ccc;
-}
-
-#nav {
-  float: left;
-  height: 35px;
-}
-
-#nav ul {
+#topnav ul {
 	list-style: none;
 	line-height: normal;
 }
 
-#nav li {
+#topnav li {
 	display: block;
-	float: left;
-  border-right: 1px solid #ccc;
   height: 35px;
+  border-right: 1px solid gray;
 }
 
-#nav a {
-	float: left;
+#topnav a {
 	padding: 10px 20px 8px 20px;
 	text-decoration: none;
-	color: black;
+	color: white;
 	font-size: 14px;
 }
 
-#nav a:hover {
-  color: #8bbad4;
-  background-color: #fff;
+#topnav a:hover {
+  color: #7ed7f7;
+  background-color: transparent;
 }
 
-#login {
-  float: right;
+#logo {
   height: 35px;
+  width: 125px;
+  padding-left: 10px;
+  float: left;
 }
 
-#login ul {
-  list-style: none;
-  line-height: normal;
+#logo a {
+  padding: 0;
 }
 
-#login li {
-	display: block;
-	float: right;
-  height: 35px;
+#logo a:hover {
+  background-color: transparent;
 }
 
-#login a {
-	float: right;
-	padding: 10px 20px 8px 20px;
-	text-decoration: none;
-	color: black;
-	font-size: 14px;
-}
+#nav, #login { height: 35px; }
 
-#login a:hover {
-  color: #8bbad4;
-  background-color: #fff;
-}
+#nav, #nav li, #nav a { float: left; }
+
+#login, #login li, #login a { float: right; }
 
 #searchwrapper {
   width:230px; /*follow your image's size*/
@@ -196,7 +175,7 @@ pre {
 a { color: black; }
 a:visited { color: black; }
 a:hover {
-  color: #3e7b2d;
+  color: #7ed7f7;
   text-decoration: underline;
 }
 
@@ -271,7 +250,7 @@ table th {
   border: 1px solid black;
   padding: 0.5em;
   color: black;
-  background-color: #c2d8c2;
+  background-color: #ceedfc;
 }
 
 table tr {
