@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  window.location = '#story';
   $("#story").scrollTop($("#story")[0].scrollHeight);
   bindAncestors();
   bindBranches();
@@ -15,7 +14,7 @@ function bindAncestors() {
           $(this).fadeOut('fast');
         }
       });
-      window.location = leaf_id+'#story';
+      window.location = leaf_id;
     });
   });
 }
@@ -30,7 +29,7 @@ function bindBranches() {
         .attr('class', 'ancestor')
         .appendTo('#story')
         .slideDown('fast', function() {
-          window.location = leaf_id+'#story';
+          window.location = leaf_id;
         });
     });
   });
