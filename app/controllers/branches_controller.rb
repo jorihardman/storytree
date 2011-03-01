@@ -31,8 +31,8 @@ class BranchesController < ApplicationController
   def show
     @branch = Branch.find(params[:id])
     @new_branch = Branch.new
-    @ancestors = @branch.story.paginate :page => params[:story_page] || @branch.last_page, :per_page => 7
-    @branches = @branch.children.order('points DESC').paginate :page => params[:branch_page], :per_page => 7
+    @ancestors = @branch.ancestors#.paginate :page => params[:story_page] || @branch.last_page, :per_page => 7
+    @branches = @branch.children.order('points DESC')#.paginate :page => params[:branch_page], :per_page => 7
 
     if not @branch.is_root? and flash[:last_leaf] == @branch.parent
       flash[:last_leaf].give_point!(current_user)

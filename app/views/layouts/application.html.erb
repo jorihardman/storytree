@@ -4,11 +4,11 @@
   <title>Storytree</title>
   <%= stylesheet_link_tag :all %>
   <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <!--[endif]-->
+    <%= javascript_include_tag 'http://html5shiv.googlecode.com/svn/trunk/html5.js' %>
+  <![endif]-->
   <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js' %>
   <%= javascript_include_tag 'http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js' %>
-  <%= javascript_include_tag 'client_side_validations', 'branches.js', 'rails.js' %>
+  <%= javascript_include_tag 'client_side_validations', 'rails.js' %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
 </head>
@@ -25,7 +25,7 @@
 			<li><%= link_to 'Contact Us', contact_us_path %></li>
     </ul>
     <ul id="login">
-      <li><a href="#">Log in</a></li>
+      <li><%= raw(login_link) %></li>
     </ul>
     <div id="searchwrapper">
       <form action="">

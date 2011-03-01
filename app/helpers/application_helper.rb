@@ -1,7 +1,6 @@
 module ApplicationHelper
   def login
-    html = ''
-    html << '<div id="login">'
+    html = '<div id="login">'
     if current_user
       html << "Welcome #{current_user.login} [#{link_to 'My Account', my_account_path}"
       html << " | #{link_to 'Logout', session_path, :method => :delete}]"
@@ -10,5 +9,13 @@ module ApplicationHelper
       html << " | #{link_to 'Register', new_author_path}]"
     end
     return html << '</div>'
+  end
+
+  def login_link
+    if current_user
+      return "#{link_to 'Logout', session_path, :method => :delete}"
+    else
+      return "#{link_to 'Login', new_session_path}"
+    end
   end
 end

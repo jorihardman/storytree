@@ -1,42 +1,42 @@
 <% content_for :head do %>
+<%= javascript_include_tag 'https://github.com/jquery/jquery-color/raw/master/jquery.color.js',
+  'branches.js'
+%>
 <script>
-  $(document).ready(function() {
-    window.location = '#story';
-    $('#branches').slideDown('fast');
-    bindAncestors();
-    bindBranches();
-    bindPageLinks();
-  });
+
 </script>
 <% end %>
 
 <h1><%= @branch.root.title %></h1>
 
-<div id='story'>
+<div id="story">
   <% @ancestors.each do |ancestor|  %>
-    <div id='<%= ancestor.id %>' class='ancestor'>
+    <div id="<%= ancestor.id %>" class="ancestor">
       <%= ancestor.leaf_text %>
     </div>
   <% end %>
+  <div id="<%= @branch.id %>" class="leaf">
+    <%= @branch.leaf_text %>
+  </div>
 </div>
-<%= will_paginate @ancestors, :param_name => 'story_page' %>
 
 <h3>Choose the next branch</h3>
-<div id='branches' style='display:none;'>
+<div id="branches" style="display:none;">
   <% @branches.each do |branch| %>
     <%= raw(branch(branch)) %>
   <% end %>
 </div>
-<%= will_paginate @branches, :param_name => 'branch_page' %>
 
 <h3>Write your own branch</h3>
-<%= form_for @new_branch,
-  :url => forest_seed_branch_path(params[:forest_id], params[:seed_id], params[:id]),
-  :remote => true, :validations => true do |f| %>
-  <div class='field'>
-    <%= f.text_area :leaf_text, :rows => 5 %><br/>
-  </div>
-  <div class='action'>
-    <%= f.submit 'Add' %>
-  </div>
-<% end %>
+<div id="branchform">
+  <%= form_for @new_branch,
+    :url => forest_seed_branch_path(params[:forest_id], params[:seed_id], params[:id]),
+    :remote => true, :validations => true do |f| %>
+    <div class="field">
+      <%= f.text_area :leaf_text, :rows => 5 %><br/>
+    </div>
+    <div class="action">
+      <%= f.submit 'Add' %>
+    </div>
+  <% end %>
+</div>
