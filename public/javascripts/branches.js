@@ -15,7 +15,9 @@ function bindAncestors() {
           $(this).fadeOut('fast');
         }
       });
-      window.location = leaf_id;
+      $('#branches').slideUp('fast', function() {
+          window.location = leaf_id;
+      });
     });
   });
 }
