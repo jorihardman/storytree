@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#story").scrollTop($("#story")[0].scrollHeight);
+  $('#branches').slideDown('fast');
   bindAncestors();
   bindBranches();
   bindPageLinks();
