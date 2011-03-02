@@ -16,6 +16,16 @@ class BranchesController < ApplicationController
         format.xml  { render :xml => @branch.errors, :status => :unprocessable_entity }
       end
     end
+    
+    # Send email down the path back to the root.
+    # This should probably be somewhere else, and
+    # the call to 'deliver' seems to be a blocking call,
+    # so we have to sit through this whole loop while emails
+    # get sent out.
+    @branch.ancestors.each do |ancestor|
+      author = User.find(ancestor.user_id)
+      UserMailer.subtree_update_email( author, ancestor ).deliver
+    end
   end
 
   def destroy

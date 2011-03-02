@@ -15,6 +15,13 @@ class Branch < ActiveRecord::Base
     ancestors + [self]
   end
 
+  def Branch.send_email(from, to, subject, message)
+    #Net::SMTP.start('localhost') do |smtp|
+    #  smtp.send_message message, from, to
+    #end
+    
+  end
+  
   def give_point!(giver)
     if PointTransaction.where({:receiver_id => id, :giver_id => giver.id}).empty?
       self.points += 1
