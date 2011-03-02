@@ -1,9 +1,9 @@
 class DropSeedDetails < ActiveRecord::Migration
-  def self.up
+  def self.down
     drop_table "seed_details"
   end
 
-  def self.down
+  def self.up
     create_table "seed_details", :force => true do |t|
       t.integer  "seed_id"
       t.string   "title"
