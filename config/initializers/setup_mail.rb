@@ -1,3 +1,5 @@
+# Right now, this is set up to use a gmail account gmailusername@gmail.com
+# with password 'gmailpassword'.
 ActionMailer::Base.smtp_settings = {
   :address => 'smtp.gmail.com',
   :port => 587,
