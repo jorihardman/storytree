@@ -16,7 +16,8 @@ class Branch < ActiveRecord::Base
   end
 
   def give_point!(giver)
-    if PointTransaction.where({:receiver_id => id, :giver_id => giver.id}).empty?
+    pointTransaction = PointTransaction.where({:receiver_id => id, :giver_id => giver.id}).first
+    if pointTransaction.nil? and current_user.id != user_id
       self.points += 1
       self.save
       point = PointTransaction.new
