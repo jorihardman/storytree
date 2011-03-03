@@ -142,6 +142,7 @@ DEPENDENCIES
   client_side_validations
   dynamic_form
   jquery-rails
+  mail
   mysql2
   omniauth
   rails (= 3.0.3)

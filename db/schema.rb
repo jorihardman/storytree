@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(:version => 20110219200346) do
     t.datetime "updated_at"
   end
 
+  create_table "seed_details", :force => true do |t|
+    t.integer  "seed_id"
+    t.string   "title"
+    t.integer  "branch_length"
+    t.boolean  "double_posting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
