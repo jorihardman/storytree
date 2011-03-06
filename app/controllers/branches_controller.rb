@@ -9,22 +9,17 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save!
+        if @branch.parent.user_id != current_user.id
+          spawn do
+            UserMailer.subtree_update_email(@branch.parent).deliver
+          end
+        end
         format.js # create.js.erb
         format.xml  { render :xml => @branch, :status => :created, :location => @branch }
       else
         format.js # create.js.erb
         format.xml  { render :xml => @branch.errors, :status => :unprocessable_entity }
       end
-    end
-    
-    # Send email down the path back to the root.
-    # This should probably be somewhere else, and
-    # the call to 'deliver' seems to be a blocking call,
-    # so we have to sit through this whole loop while emails
-    # get sent out.
-    @branch.ancestors.each do |ancestor|
-      author = User.find(ancestor.user_id)
-      UserMailer.subtree_update_email( author, ancestor ).deliver
     end
   end
 
@@ -41,8 +36,8 @@ class BranchesController < ApplicationController
   def show
     @branch = Branch.find(params[:id])
     @new_branch = Branch.new
-    @ancestors = @branch.ancestors#.paginate :page => params[:story_page] || @branch.last_page, :per_page => 7
-    @branches = @branch.children.order('points DESC')#.paginate :page => params[:branch_page], :per_page => 7
+    @ancestors = @branch.ancestors
+    @branches = @branch.children.joins(:author).order('points DESC')
 
     if not @branch.is_root? and flash[:last_leaf] == @branch.parent
       flash[:last_leaf].give_point!(current_user)

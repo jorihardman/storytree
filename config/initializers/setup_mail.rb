@@ -3,11 +3,10 @@
 ActionMailer::Base.smtp_settings = {
   :address => 'smtp.gmail.com',
   :port => 587,
-  :domain => 'storytr.ee',
-  :user_name => 'gmailusername',
-  :password => 'gmailpassword',
+  :user_name => 'nustorytree',
+  :password => 'yellowhouse',
   :authentication => 'plain',
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "localhost:3000"
+ActionMailer::Base.default_url_options[:host] = 'hardman.homelinux.com'

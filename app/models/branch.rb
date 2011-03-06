@@ -14,10 +14,10 @@ class Branch < ActiveRecord::Base
   def story
     ancestors + [self]
   end
-  
+
   def give_point!(giver)
     pointTransaction = PointTransaction.where({:receiver_id => id, :giver_id => giver.id}).first
-    if pointTransaction.nil? and current_user.id != user_id
+    if pointTransaction.nil? and giver.id != user_id
       self.points += 1
       self.save
       point = PointTransaction.new
