@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  branch_id: 1
+  user_id: 1
+  forest_id: 1
+
+two:
+  branch_id: 1
+  user_id: 1
+  forest_id: 1
