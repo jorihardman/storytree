@@ -37,7 +37,7 @@ class BranchesController < ApplicationController
     @branch = Branch.find(params[:id])
     @new_branch = Branch.new
     @ancestors = @branch.ancestors
-    @branches = @branch.children.joins(:author).order('points DESC')
+    @branches = @branch.children.joins(:user).select('branches.*, users.login').order('points DESC')
 
     if not @branch.is_root? and flash[:last_leaf] == @branch.parent
       flash[:last_leaf].give_point!(current_user)

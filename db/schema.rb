@@ -10,18 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219200346) do
+ActiveRecord::Schema.define(:version => 20110306012239) do
 
   create_table "branches", :force => true do |t|
     t.text     "leaf_text"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
-    t.integer  "points",     :default => 0
+    t.integer  "points",         :default => 0
     t.string   "type"
-    t.integer  "user_id",                   :null => false
-    t.integer  "forest_id",                 :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "forest_id",                     :null => false
     t.string   "title"
+    t.integer  "ancestry_depth", :default => 0
+    t.integer  "child_count",    :default => 0
   end
 
   create_table "forests", :force => true do |t|
@@ -38,15 +40,6 @@ ActiveRecord::Schema.define(:version => 20110219200346) do
     t.integer  "giver_id"
     t.string   "giver_type"
     t.integer  "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "seed_details", :force => true do |t|
-    t.integer  "seed_id"
-    t.string   "title"
-    t.integer  "branch_length"
-    t.boolean  "double_posting"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -86,6 +79,6 @@ ActiveRecord::Schema.define(:version => 20110219200346) do
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
-  add_index "users", ["login"], :name => "index_users_on_pen_name"
+  add_index "users", ["login"], :name => "index_users_on_login"
 
 end

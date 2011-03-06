@@ -1,4 +1,4 @@
-<h1>Top Authors</h1>
+<h1>Top Users</h1>
 
 <table>
   <tr>
@@ -7,7 +7,7 @@
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <td><%= link_to user.login, author_path(user.id) %></td>
+      <td><%= link_to user.login, user_path(user.id) %></td>
       <td><%= user.points %></td>
     </tr>
   <% end %>

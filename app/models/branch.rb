@@ -2,7 +2,7 @@ class Branch < ActiveRecord::Base
   #relationships
   has_ancestry
   belongs_to :forest
-  belongs_to :author, :class_name => 'User', :foreign_key => 'user_id'
+  belongs_to :user
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
 
   #validations
@@ -25,13 +25,14 @@ class Branch < ActiveRecord::Base
       point.receiver = self
       point.giver = giver
       point.save
-      self.author.give_point!(giver)
+      self.user.give_point!(giver)
     end
   end
 
   def parent_point
     unless is_root?
-      parent.give_point!(author)
+      parent.child_count += 1
+      parent.give_point!(user)
     end
   end
 

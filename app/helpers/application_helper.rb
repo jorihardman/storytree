@@ -6,7 +6,7 @@ module ApplicationHelper
       html << " | #{link_to 'Logout', session_path, :method => :delete}]"
     else
       html << "[#{link_to 'Login', new_session_path}"
-      html << " | #{link_to 'Register', new_author_path}]"
+      html << " | #{link_to 'Register', new_user_path}]"
     end
     return html << '</div>'
   end

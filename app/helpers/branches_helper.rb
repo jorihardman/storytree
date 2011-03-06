@@ -4,8 +4,8 @@ module BranchesHelper
       <div id="#{branch.id}" class="branch">
         <div class="stats">
           [#{branch.points} points]
-          [#{branch.children.count} branches]
-          [by #{link_to branch.author.login, author_path(branch.author.id)}]
+          [#{branch.child_count} branches]
+          [by #{link_to branch.user.login, user_path(branch.user_id)}]
         </div>
         #{branch.leaf_text}
       </div>

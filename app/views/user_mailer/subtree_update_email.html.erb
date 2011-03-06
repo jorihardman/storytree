@@ -8,7 +8,7 @@
       Hey <%= @user.login %>,<br/>
       <br/>
       Someone played off of one of your Storytree branches!<br/>
-      Check it out <%= link_to 'here', forest_seed_branch_url(@branch.forest_id, @branch.root.id, @branch) %>.<br/>
+      Check it out <%= link_to 'here', forest_seed_branch_url(@branch.forest_id, @branch.root_id, @branch.id) %>.<br/>
       <br/>
       Sincerely,<br/>
       The Storytree Team

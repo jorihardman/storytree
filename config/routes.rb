@@ -9,7 +9,7 @@ Storytree::Application.routes.draw do
     end
   end
 
-  resources :authors, :to => 'users' do
+  resources :users do
     member do
       delete 'follow' => 'users#unfollow', :as => 'unfollow'
       post 'follow'
