@@ -80,9 +80,8 @@ p {
   background-image:url(../images/search.gif);
   background-repeat:no-repeat; /*important*/
   padding:0px;
-  margin:0px;
-  /*position:relative; /*important*/
-  position:absolute;
+  margin-top:5px;
+float:right;
   top:5px;
   right:75px;
 }
