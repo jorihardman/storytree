@@ -1,12 +1,12 @@
-<h1><%= @publication.title %></h1>
+<h1><%= @publication.branch.title %></h1>
 <p>
   <b>Publisher:</b>
-  <%= @publish.user.login %>
+  <%= @publication.user.login %>
 </p>
 
 <p>
   <b>Points:</b>
-  <%= @publish.points %>
+  <%= @publication.points %>
 </p>
 
-<p><%= @publish.branch.story %></p>
+<p><%= @publication.branch.story %></p>

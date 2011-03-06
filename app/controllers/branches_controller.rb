@@ -1,6 +1,23 @@
 class BranchesController < ApplicationController
   before_filter :require_user
 
+  def show
+    @branch = Branch.find(params[:id])
+    @new_branch = Branch.new
+    @ancestors = @branch.ancestors
+    @branches = @branch.children.includes(:user).select('branches.*, users.login').order('branches.points DESC')
+
+    if not @branch.is_root? and flash[:last_leaf] == @branch.parent
+      flash[:last_leaf].give_point!(current_user)
+    end
+    flash[:last_leaf] = @branch
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { head :ok }
+    end
+  end
+
   def create
     @branch = Branch.new(params[:branch])
     @branch.parent_id = params[:id]
@@ -24,28 +41,10 @@ class BranchesController < ApplicationController
   end
 
   def destroy
-    @branch = Branch.find(params[:id])
-    @branch.destroy
+    Branch.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to(leaves_url) }
-      format.xml  { head :ok }
-    end
-  end
-
-  def show
-    @branch = Branch.find(params[:id])
-    @new_branch = Branch.new
-    @ancestors = @branch.ancestors
-    @branches = @branch.children.joins(:user).select('branches.*, users.login').order('points DESC')
-
-    if not @branch.is_root? and flash[:last_leaf] == @branch.parent
-      flash[:last_leaf].give_point!(current_user)
-    end
-    flash[:last_leaf] = @branch
-
-    respond_to do |format|
-      format.html # show.html.erb
       format.xml  { head :ok }
     end
   end

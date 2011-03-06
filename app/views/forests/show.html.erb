@@ -4,4 +4,8 @@
 
 <%= button_to 'Plant New Seed', new_forest_seed_path(@forest.id), :method => :get %>
 
+<h3>Stories in Progress</h3>
 <%= render :partial => 'seeds/list', :object => @forest.seeds, :as => :branches %>
+
+<h3>Published Stories</h3>
+<%= render :partial => 'publications/list', :object => @publications, :as => :publications %>

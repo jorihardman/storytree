@@ -1,8 +1,6 @@
 class ForestsController < ApplicationController
   before_filter :require_user
 
-  # GET /forests
-  # GET /forests.xml
   def index
     @forests = Forest.all
 
@@ -12,10 +10,9 @@ class ForestsController < ApplicationController
     end
   end
 
-  # GET /forests/1
-  # GET /forests/1.xml
   def show
     @forest = Forest.find(params[:id])
+    @publications = Publication.where({:forest_id => params[:id]}).all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -23,8 +20,6 @@ class ForestsController < ApplicationController
     end
   end
 
-  # GET /forests/new
-  # GET /forests/new.xml
   def new
     @forest = Forest.new
 
@@ -34,8 +29,6 @@ class ForestsController < ApplicationController
     end
   end
 
-  # POST /forests
-  # POST /forests.xml
   def create
     @forest = Forest.new(params[:forest])
 
@@ -50,8 +43,6 @@ class ForestsController < ApplicationController
     end
   end
 
-  # DELETE /forests/1
-  # DELETE /forests/1.xml
   def destroy
     @forest = Forest.find(params[:id])
     @forest.destroy

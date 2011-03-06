@@ -1,14 +1,5 @@
 class PublicationsController < ApplicationController
-  before_filter :require_user
-
-  def index
-    @publications = Publication.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @publications }
-    end
-  end
+  before_filter :require_user, :except => [:show]
 
   def show
     @publication = Publication.find(params[:id])
@@ -22,8 +13,8 @@ class PublicationsController < ApplicationController
   def create
     @publication = Publication.new
     @publication.forest_id = params[:forest_id]
-    @publication.branch_id = params[:branch_id]
-    @publication.user_id = params[:user_id]
+    @publication.branch_id = params[:id]
+    @publication.user_id = current_user.id
 
     respond_to do |format|
       if @publication.save
@@ -37,8 +28,7 @@ class PublicationsController < ApplicationController
   end
 
   def destroy
-    @publication = Publication.find(params[:id])
-    @publication.destroy
+    Publication.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to(publications_url) }
