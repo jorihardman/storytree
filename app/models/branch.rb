@@ -4,15 +4,18 @@ class Branch < ActiveRecord::Base
   belongs_to :forest
   belongs_to :user
   has_many :points_received, :class_name => 'PointTransaction', :foreign_key => 'receiver_id'
+  has_many :publications
 
   #validations
   validates_presence_of :leaf_text
   validates_length_of :leaf_text, :minimum => 10
 
-  before_create :parent_point
+  before_create :init
 
   def story
-    ancestors + [self]
+    text = ''
+    ancestors.each { |ancestor| text << ancestor.leaf_text }
+    text << leaf_text
   end
 
   def give_point!(giver)
@@ -29,14 +32,17 @@ class Branch < ActiveRecord::Base
     end
   end
 
-  def parent_point
+  def last_page
+    [ancestors.count / 5 + 1, 1].max
+  end
+
+  private
+
+  def init
     unless is_root?
+      title = parent.title
       parent.child_count += 1
       parent.give_point!(user)
     end
-  end
-
-  def last_page
-    [ancestors.count / 5 + 1, 1].max
   end
 end

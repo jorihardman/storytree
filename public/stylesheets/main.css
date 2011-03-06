@@ -221,7 +221,9 @@ div.field, div.actions {
 
 /* end rails presets */
 
-#content > #story, #branches, #branchform, h1, h3 {
+input { cursor: pointer; }
+
+#content > #story, #publish, #branches, #branchform, h1, h3 {
   margin: 0 auto 10px auto;
   text-align: center;
 }

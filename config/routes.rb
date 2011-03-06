@@ -1,9 +1,12 @@
 Storytree::Application.routes.draw do
+  resources :works
+
   resources :forests do
     resources :seeds do
       resources :branches do
         member do
           post 'create'
+          post 'publish' => 'works#publish', :as => 'publish'
         end
       end
     end

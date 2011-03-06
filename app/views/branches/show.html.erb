@@ -5,7 +5,7 @@
 </script>
 <% end %>
 
-<h1><%= @branch.root.title %></h1>
+<h1><%= @branch.title %></h1>
 
 <div id="story">
   <% @ancestors.each do |ancestor|  %>
@@ -16,6 +16,13 @@
   <div id="<%= @branch.id %>" class="leaf">
     <%= @branch.leaf_text %>
   </div>
+</div>
+
+<div id='publish'>
+  <%= button_to 'Publish',
+    publish_forest_seed_branch_path(@branch.forest_id, @branch.root_id, @branch.id),
+    :method => :post
+  %>
 </div>
 
 <h3>Choose the next branch</h3>

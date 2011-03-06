@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306012239) do
+ActiveRecord::Schema.define(:version => 20110306015530) do
 
   create_table "branches", :force => true do |t|
     t.text     "leaf_text"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20110306012239) do
     t.integer  "giver_id"
     t.string   "giver_type"
     t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "publications", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "user_id"
+    t.integer  "forest_id"
+    t.integer  "points",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
