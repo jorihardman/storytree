@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include PointManagement
+
 	acts_as_authentic
   has_many :branches
   has_many :publications
@@ -18,18 +20,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def give_point!(giver)
-    self.points += 1
-    self.save
-    point = PointTransaction.new
-    point.amount = 1
-    point.receiver = self
-    point.giver = giver
-    point.save
-  end
-
   def guide_branches
-    Branch.find_by_sql("select * from branches where user_id in (select guide_id from user_relationships where follower_id = #{id})")
+    find_by_sql("select * from branches where user_id in (select guide_id from user_relationships where follower_id = #{id})")
   end
 
   # workaround for mongomapper bug

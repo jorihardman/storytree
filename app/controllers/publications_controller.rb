@@ -10,6 +10,10 @@ class PublicationsController < ApplicationController
     end
   end
 
+  def upvote
+
+  end
+
   def create
     @publication = Publication.new
     @publication.forest_id = params[:forest_id]

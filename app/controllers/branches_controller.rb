@@ -7,11 +7,6 @@ class BranchesController < ApplicationController
     @ancestors = @branch.ancestors
     @branches = @branch.children.includes(:user).select('branches.*, users.login').order('branches.points DESC')
 
-    if not @branch.is_root? and flash[:last_leaf] == @branch.parent
-      flash[:last_leaf].give_point!(current_user)
-    end
-    flash[:last_leaf] = @branch
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { head :ok }
@@ -26,11 +21,6 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save!
-        if @branch.parent.user_id != current_user.id
-          spawn do
-            UserMailer.subtree_update_email(@branch.parent).deliver
-          end
-        end
         format.js # create.js.erb
         format.xml  { render :xml => @branch, :status => :created, :location => @branch }
       else
