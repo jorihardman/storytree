@@ -72,42 +72,36 @@ p {
 
 #nav, #nav li, #nav a { float: left; }
 
-#login, #login li, #login a { float: right; }
+#login, #login li, #login a { 
+float: right; }
 
 #searchwrapper {
   width:230px; /*follow your image's size*/
   height:40px;/*follow your image's size*/
   background-image:url(../images/search.gif);
   background-repeat:no-repeat; /*important*/
-  padding:0px;
   margin-top:5px;
-float:right;
-  top:5px;
   right:75px;
+  float:right;
 }
-
-#searchwrapper form { display:inline; }
-
-#searchwrapper { border:0; }
 
 .searchbox {
   border:0px; /*important*/
   background-color:transparent; /*important*/
-  position:absolute; /*important*/
-  top:3.5px;
-  right:20px;
-  width:175px;
+  width:180px;
   height:20px;
+margin-top:3px;
+margin-left:37px;
 }
 
 .searchbox_submit {
   border:0px; /*important*/
   background-color:transparent; /*important*/
-  position:absolute; /*important*/
-  top:2px;
-  left:10px;
+ margin-top:3px;
+  margin-left:10px;
   width:25px;
   height:22px;
+  float:right;
 }
 
 /* End Top Bar */
