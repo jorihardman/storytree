@@ -4,10 +4,9 @@
   <%= @publication.user.login %>
 </p>
 
-<p>
-  <b>Points:</b>
-  <%= @publication.points %>
-</p>
+<div id="points">
+ <%= raw(points(@publication.points)) %>
+</div>
 
 <p><%= @publication.branch.story %></p>
 

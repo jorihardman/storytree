@@ -1,10 +1,11 @@
 Storytree::Application.routes.draw do
-  resources :forests do
-    resources :publications do
-      member do
-        post 'upvote'
-      end
+  resources :publications do
+    member do
+      post 'upvote'
     end
+  end
+
+  resources :forests do
     resources :seeds do
       resources :branches do
         member do

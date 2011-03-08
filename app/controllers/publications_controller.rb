@@ -11,7 +11,15 @@ class PublicationsController < ApplicationController
   end
 
   def upvote
+    @publication = Publication.find(params[:id])
+    unless PointTransaction.already_given?(current_user, @publication)
+      @publication.give_point!(current_user)
+    end
 
+    respond_to do |format|
+      format.js
+      format.xml { head :ok }
+    end
   end
 
   def create
@@ -21,7 +29,7 @@ class PublicationsController < ApplicationController
     @publication.user_id = current_user.id
 
     respond_to do |format|
-      if @publication.save
+      if @publication.save!
         format.html { redirect_to(@publication, :notice => 'Publication was successfully created.') }
         format.xml  { render :xml => @publication, :status => :created, :location => @publication }
       else

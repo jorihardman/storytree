@@ -28,7 +28,7 @@ class Branch < ActiveRecord::Base
     unless is_root?
       title = parent.title
       parent.child_count += 1
-      if parent.user_id != current_user.id
+      unless PointTransaction.already_given?(current_user, parent) or parent.user_id == current_user.id
         parent.give_point!(user)
         parent.user.give_point!(user)
       end
