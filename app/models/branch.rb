@@ -25,10 +25,11 @@ class Branch < ActiveRecord::Base
   private
 
   def init
+    debugger
     unless is_root?
-      title = parent.title
+      self.title = parent.title
       parent.child_count += 1
-      unless PointTransaction.already_given?(current_user, parent) or parent.user_id == current_user.id
+      unless PointTransaction.already_given?(UserSession.find.user, parent) or parent.user_id == UserSession.find.user.id
         parent.give_point!(user)
         parent.user.give_point!(user)
       end
